@@ -5,7 +5,9 @@ import { theme } from "../../theme";
 import { CallToActionButton } from "../CallToActionButton";
 import { Columns } from "../Columns";
 import { Column } from "../Column";
-import Image from 'next/image'
+import Image from "next/image";
+import { PropertySearch } from "../PropertySearch";
+import { PostTitle } from "../PostTitle";
 
 export const BlockRenderer = ({ blocks }) => {
   return blocks.map(block => {
@@ -16,6 +18,10 @@ export const BlockRenderer = ({ blocks }) => {
                                    buttonLabel={block.attributes.data.label}
                                    destination={block.attributes.data.destination || "/"}
                                    align={block.attributes.data.align}
+        />;
+      }
+      case "acf/propertysearch": {
+        return <PropertySearch key={block.id}
         />;
       }
       case "core/paragraph": {
@@ -35,8 +41,17 @@ export const BlockRenderer = ({ blocks }) => {
                         textAlign={block.attributes.textAlign}
         />;
       }
+      case "core/post-title": {
+        console.log("postTitle BLOCK: ", block);
+        return (
+          <PostTitle key={block.id}
+                     level={block.attributes.level}
+                     textAlign={block.attributes.textAlign}
+          />
+        );
+      }
       case "core/cover": {
-        // console.log("BLOCK: ", block);
+        console.log("COVER BLOCK: ", block);
         return <Cover key={block.id} background={block.attributes.url}><BlockRenderer
           blocks={block.innerBlocks} /></Cover>;
       }
@@ -73,7 +88,7 @@ export const BlockRenderer = ({ blocks }) => {
         );
       }
       default: {
-        // console.log("UNKNOWN", block);
+        console.log("UNKNOWN", block);
         return null;
       }
     }
