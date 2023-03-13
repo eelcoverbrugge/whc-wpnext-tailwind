@@ -8,10 +8,23 @@ import { Column } from "../Column";
 import Image from "next/image";
 import { PropertySearch } from "../PropertySearch";
 import { PostTitle } from "../PostTitle";
+import { FormspreeForm } from "../FormspreeForm";
+import { PropertyFeatures } from "../PropertyFeatures";
 
 export const BlockRenderer = ({ blocks }) => {
   return blocks.map(block => {
     switch (block.name) {
+      case "acf/propertyfeatures": {
+        // console.log("BLOCK: ", block);
+        return <PropertyFeatures key={block.id}
+        />;
+      }
+      case "acf/formspreeform": {
+        // console.log("BLOCK: ", block);
+        return <FormspreeForm key={block.id}
+                              formId={block.attributes.data.form_id}
+        />;
+      }
       case "acf/ctabutton": {
         // console.log("BLOCK: ", block);
         return <CallToActionButton key={block.id}
