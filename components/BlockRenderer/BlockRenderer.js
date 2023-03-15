@@ -11,6 +11,7 @@ import { PostTitle } from "../PostTitle";
 import { FormspreeForm } from "../FormspreeForm";
 import { PropertyFeatures } from "../PropertyFeatures";
 import { Gallery } from "../Gallery";
+import { TickItem } from "../TickItem";
 
 export const BlockRenderer = ({ blocks }) => {
   return blocks.map(block => {
@@ -19,6 +20,13 @@ export const BlockRenderer = ({ blocks }) => {
         // console.log("BLOCK: ", block);
         return <PropertyFeatures key={block.id}
         />;
+      }
+      case "acf/tickitem": {
+        console.log("TICK ITEM: ", block);
+        return <TickItem key={block.id}>
+          <BlockRenderer
+            blocks={block.innerBlocks} />
+        </TickItem>;
       }
       case "acf/formspreeform": {
         // console.log("BLOCK: ", block);
@@ -70,7 +78,7 @@ export const BlockRenderer = ({ blocks }) => {
                         columns={block.attributes.columns || 3}
                         cropImaes={block.attributes.imageCrop}
                         items={block.innerBlocks}
-        />
+        />;
       }
       case "core/cover": {
         // console.log("COVER BLOCK: ", block);
@@ -98,7 +106,17 @@ export const BlockRenderer = ({ blocks }) => {
         // console.log("BLOCK: ", block);
         // console.log("block.innerBlocks: ", block.innerBlocks);
         return (
-          <Column key={block.id} width={block.attributes.width}>
+          <Column key={block.id}
+                  width={block.attributes.width}
+                  textColor={
+                    theme[block.attributes.textColor] ||
+                    block.attributes.style?.color?.text
+                  }
+                  backgroundColor={
+                    theme[block.attributes.backgroundColor] ||
+                    block.attributes.style?.color?.background
+                  }
+          >
             <BlockRenderer blocks={block.innerBlocks} />
           </Column>
         );
