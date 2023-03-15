@@ -10,6 +10,7 @@ import { PropertySearch } from "../PropertySearch";
 import { PostTitle } from "../PostTitle";
 import { FormspreeForm } from "../FormspreeForm";
 import { PropertyFeatures } from "../PropertyFeatures";
+import { Gallery } from "../Gallery";
 
 export const BlockRenderer = ({ blocks }) => {
   return blocks.map(block => {
@@ -62,6 +63,14 @@ export const BlockRenderer = ({ blocks }) => {
                      textAlign={block.attributes.textAlign}
           />
         );
+      }
+      case "core/gallery": {
+        console.log("GALLERY BLOCK: ", block);
+        return <Gallery key={block.id}
+                        columns={block.attributes.columns || 3}
+                        cropImaes={block.attributes.imageCrop}
+                        items={block.innerBlocks}
+        />
       }
       case "core/cover": {
         console.log("COVER BLOCK: ", block);
