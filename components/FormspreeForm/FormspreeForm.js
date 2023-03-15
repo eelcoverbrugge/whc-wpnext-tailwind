@@ -2,7 +2,7 @@ import { useForm, ValidationError } from "@formspree/react";
 import { Input } from "../Input";
 
 export const FormspreeForm = ({ formId }) => {
-  console.log("FORM ID: ", formId);
+  // console.log("FORM ID: ", formId);
   const [state, handleSubmit] = useForm(formId);
   if (state.succeeded) {
     return <p>Thanks for joining!</p>;

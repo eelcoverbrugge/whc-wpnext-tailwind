@@ -56,7 +56,7 @@ export const BlockRenderer = ({ blocks }) => {
         />;
       }
       case "core/post-title": {
-        console.log("postTitle BLOCK: ", block);
+        // console.log("postTitle BLOCK: ", block);
         return (
           <PostTitle key={block.id}
                      level={block.attributes.level}
@@ -65,7 +65,7 @@ export const BlockRenderer = ({ blocks }) => {
         );
       }
       case "core/gallery": {
-        console.log("GALLERY BLOCK: ", block);
+        // console.log("GALLERY BLOCK: ", block);
         return <Gallery key={block.id}
                         columns={block.attributes.columns || 3}
                         cropImaes={block.attributes.imageCrop}
@@ -73,22 +73,30 @@ export const BlockRenderer = ({ blocks }) => {
         />
       }
       case "core/cover": {
-        console.log("COVER BLOCK: ", block);
+        // console.log("COVER BLOCK: ", block);
         return <Cover key={block.id} background={block.attributes.url}><BlockRenderer
           blocks={block.innerBlocks} /></Cover>;
       }
       case "core/columns": {
-        // console.log("BLOCK: ", block);
+        console.log("COLUMNS: ", block.attributes);
         return <Columns key={block.id}
                         isStackedOnMobile={block.attributes.isStackedOnMobile}
+                        textColor={
+                          theme[block.attributes.textColor] ||
+                          block.attributes.style?.color?.text
+                        }
+                        backgroundColor={
+                          theme[block.attributes.backgroundColor] ||
+                          block.attributes.style?.color?.background
+                        }
         >
           <BlockRenderer
             blocks={block.innerBlocks} />
         </Columns>;
       }
       case "core/column": {
-        console.log("BLOCK: ", block);
-        console.log("block.innerBlocks: ", block.innerBlocks);
+        // console.log("BLOCK: ", block);
+        // console.log("block.innerBlocks: ", block.innerBlocks);
         return (
           <Column key={block.id} width={block.attributes.width}>
             <BlockRenderer blocks={block.innerBlocks} />

@@ -4,7 +4,7 @@ import { PageWrapper } from "context/page";
 import Head from "next/head";
 
 export const Page = (props) => {
-  console.log("PAGE: ", props);
+  // console.log("PAGE: ", props);
   return (
     <PageWrapper
       value={{

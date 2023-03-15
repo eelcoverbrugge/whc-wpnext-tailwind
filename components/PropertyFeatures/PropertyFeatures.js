@@ -5,7 +5,7 @@ import numeral from "numeral";
 
 export const PropertyFeatures = () => {
   const { propertyFeatures } = usePageContext();
-  console.log("propertyFeatures: ", propertyFeatures);
+  // console.log("propertyFeatures: ", propertyFeatures);
   return (
     <div>
       <div className="max-w-lg mx-auto my-10 bg-white text-slate-900 p-5 text-center
