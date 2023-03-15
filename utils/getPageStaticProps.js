@@ -23,11 +23,19 @@ export const getPageStaticProps = async (context) => {
                   sourceUrl
                 }
               }
+              seo {
+                title
+                metaDesc
+              }
             }
             ... on Property {
               id
               title
               blocksJSON
+              seo {
+                title
+                metaDesc
+              }
               propertyFeatures {
                 bathrooms
                 bedrooms
@@ -84,6 +92,7 @@ export const getPageStaticProps = async (context) => {
 
   return {
     props: {
+      seo: data.nodeByUri.seo,
       blocks,
       propertyFeatures: data.nodeByUri.propertyFeatures || null,
       title: data.nodeByUri.title,
