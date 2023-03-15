@@ -130,7 +130,7 @@ const handler = async (req, res) => {
       properties: data.properties.nodes
     });
   } catch (error) {
-    console.log("ERROR", error);
+    // console.log("ERROR", error);
   }
 };
 

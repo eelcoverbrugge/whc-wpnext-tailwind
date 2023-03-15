@@ -22,7 +22,7 @@ export const BlockRenderer = ({ blocks }) => {
         />;
       }
       case "acf/tickitem": {
-        console.log("TICK ITEM: ", block);
+        // console.log("TICK ITEM: ", block);
         return <TickItem key={block.id}>
           <BlockRenderer
             blocks={block.innerBlocks} />
@@ -86,7 +86,7 @@ export const BlockRenderer = ({ blocks }) => {
           blocks={block.innerBlocks} /></Cover>;
       }
       case "core/columns": {
-        console.log("COLUMNS: ", block.attributes);
+        // console.log("COLUMNS: ", block.attributes);
         return <Columns key={block.id}
                         isStackedOnMobile={block.attributes.isStackedOnMobile}
                         textColor={
@@ -136,7 +136,7 @@ export const BlockRenderer = ({ blocks }) => {
         );
       }
       default: {
-        console.log("UNKNOWN", block);
+        // console.log("UNKNOWN", block);
         return null;
       }
     }
