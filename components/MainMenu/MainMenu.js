@@ -1,14 +1,49 @@
 import { FaHouseUser, FaHeart } from "react-icons/fa";
 import Link from "next/link";
 import { ButtonLink } from "../ButtonLink/ButtonLink";
+import WhcLogo from "../../assets/images/whc-logo.png";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export const MainMenu = ({ items, callToActionLabel, callToActionDestination }) => {
   // console.log("MAIN MENU: ", items);
+  const [clientWindowHeight, setClientWindowHeight] = useState("");
+  const [backgroundTransparancy, setBackgroundTransparancy] = useState(0);
+  const [boxShadow, setBoxShadow] = useState(0);
+
+  useEffect(() => {
+    let backgroundTransparancyVar = clientWindowHeight / 600; //1000/600=1.6
+
+    if (backgroundTransparancy < 1) {
+      let boxShadowVar = backgroundTransparancy * 0.1; //1.6*0.16
+
+      setBackgroundTransparancy(backgroundTransparancyVar);
+      setBoxShadow(boxShadowVar);
+    }
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.addEventListener("scroll", handleScroll);
+  }, [clientWindowHeight]);
+
+  const handleScroll = () => {
+    setClientWindowHeight(window.scrollY);
+  }
+
   return (
-    <div className="bg-slate-800 text-white px-5 h-[64px] sticky top-0 z-20 flex">
+    <div className="text-white px-5 sticky top-0 z-20 flex items-center"
+         style={{
+           background: `rgba(41, 34, 56, ${backgroundTransparancy})`,
+           boxShadow: `rgb(0 0 0 / ${boxShadow}) 0px 0px 20px 6px`,
+         }}
+    >
       <div className="py-4 pl-5 flex text-pink-600">
-        <FaHouseUser size={30} />
-        <FaHeart size={30} />
+        <Link href="/">
+          <Image src={WhcLogo}
+                 height="45"
+                 width="201"
+                 alt="logo"
+          />
+        </Link>
       </div>
       <div className="flex flex-1 justify-end">
         {(items || []).map(item => (

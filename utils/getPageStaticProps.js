@@ -28,27 +28,6 @@ export const getPageStaticProps = async (context) => {
                 metaDesc
               }
             }
-            ... on Property {
-              id
-              title
-              blocksJSON
-              seo {
-                title
-                metaDesc
-              }
-              propertyFeatures {
-                bathrooms
-                bedrooms
-                hasParking
-                petFriendly
-                price
-              }
-              featuredImage {
-                node {
-                  sourceUrl
-                }
-              }
-            }
           }
           acfOptionsMainMenu {
             mainMenu {
@@ -94,7 +73,6 @@ export const getPageStaticProps = async (context) => {
     props: {
       seo: data.nodeByUri.seo,
       blocks,
-      propertyFeatures: data.nodeByUri.propertyFeatures || null,
       title: data.nodeByUri.title,
       featuredImage: data.nodeByUri.featuredImage?.node?.sourceUrl || null,
       mainMenuItems: mapMainMenuItems(data.acfOptionsMainMenu.mainMenu.menuItems),

@@ -2,6 +2,7 @@ import { MainMenu } from "../MainMenu";
 import { BlockRenderer } from "../BlockRenderer";
 import { PageWrapper } from "context/page";
 import Head from "next/head";
+import { Footer } from "../Footer";
 
 export const Page = (props) => {
   // console.log("PAGE: ", props);
@@ -22,6 +23,7 @@ export const Page = (props) => {
                 callToActionDestination={props.callToActionDestination}
       />
       <BlockRenderer blocks={props.blocks} />
+      <Footer />
     </PageWrapper>
   );
 };
