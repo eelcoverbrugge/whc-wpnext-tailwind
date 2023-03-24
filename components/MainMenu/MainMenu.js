@@ -96,7 +96,7 @@ export const MainMenu = ({ items, callToActionLabel, callToActionDestination }) 
                 {(items || []).map(item => (
                   <li key={item.id} className="text-white">
                     <Link href={item.destination}>
-                      <a>{item.label}</a>
+                      <a className="font-bold uppercase">{item.label}</a>
                     </Link>
                   </li>
                 ))}
