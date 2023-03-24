@@ -17,9 +17,9 @@ export const MainMenu = ({ items, callToActionLabel, callToActionDestination }) 
     if (backgroundTransparancy < 1) {
       let boxShadowVar = backgroundTransparancy * 0.1; //1.6*0.16
 
-      setBackgroundTransparancy(backgroundTransparancyVar);
       setBoxShadow(boxShadowVar);
     }
+    setBackgroundTransparancy(backgroundTransparancyVar);
 
     window.addEventListener("scroll", handleScroll);
     return () => window.addEventListener("scroll", handleScroll);
@@ -30,7 +30,8 @@ export const MainMenu = ({ items, callToActionLabel, callToActionDestination }) 
   }
 
   return (
-    <div className="text-white px-5 sticky top-0 z-20 flex items-center"
+    <div
+      className="text-white px-5 sticky top-0 z-20 flex items-center"
          style={{
            background: `rgba(41, 34, 56, ${backgroundTransparancy})`,
            boxShadow: `rgb(0 0 0 / ${boxShadow}) 0px 0px 20px 6px`,
