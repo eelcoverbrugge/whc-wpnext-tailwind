@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 
 export const Gallery = ({ columns, cropImages, items }) => {
   let maxHeigth = 0;
@@ -18,19 +18,28 @@ export const Gallery = ({ columns, cropImages, items }) => {
   const columnWidth = 100 / columns;
 
   return (
-    <div className="flex flex-wrap max-w-5xl mx-auto">
-      {items.map(item => (
-        <div key={item.id} style={{ width: `${columnWidth}%` }} className="p-5 flex-grow">
-          <Image src={item.attributes.url}
-                 height={maxHeigth || item.attributes.height}
-                 width={maxWidth || item.attributes.width}
-                 alt={item.attributes.alt}
-                 objectFit="cover"
-          >
-
-          </Image>
+    <>
+      <div className="flex">
+        <div id="previous"
+             className="text-5xl flex justify-center items-center cursor-pointer p-2 relative -top-8">
+          <FaAngleLeft size={30} />
         </div>
-      ))}
-    </div>
+        <div id="carousel" className="mt-4 flex w-full flex-1 scroll-smooth gap-4 pb-5 snap-x overflow-x-auto">
+          {items.map(item => (
+            <div key={item.id} className="min-w-[80%] md:min-w-[40%]">
+            <div className="h-80 w-full snap-center bg-cover bg-center"
+                 style={{backgroundImage: `url(${item.attributes.url})`}}
+            ></div>
+            <h4 className="mt-2">Eelco Verbrugge</h4>
+            <h5>Gitarist</h5>
+            </div>
+          ))}
+        </div>
+        <div id="next"
+             className="text-5xl flex justify-center items-center cursor-pointer p-2 relative -top-8">
+          <FaAngleRight size={30} />
+        </div>
+      </div>
+    </>
   );
 };
