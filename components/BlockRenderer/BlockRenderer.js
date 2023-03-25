@@ -13,6 +13,7 @@ import { PropertyFeatures } from "../PropertyFeatures";
 import { Gallery } from "../Gallery";
 import { TickItem } from "../TickItem";
 import { Spacer } from "../Spacer";
+import { Separator } from "../Separator";
 
 export const BlockRenderer = ({ blocks }) => {
   return blocks.map(block => {
@@ -104,7 +105,7 @@ export const BlockRenderer = ({ blocks }) => {
         </Columns>;
       }
       case "core/column": {
-        // console.log("BLOCK: ", block);
+        // console.log("COLUMN: ", block);
         // console.log("block.innerBlocks: ", block.innerBlocks);
         return (
           <Column key={block.id}
@@ -141,6 +142,14 @@ export const BlockRenderer = ({ blocks }) => {
         return (
           <Spacer key={block.id}
                   height={block.attributes.height}
+          />
+        );
+      }
+      case "core/separator": {
+        // console.log("SEPERATOR: ", block);
+        return (
+          <Separator key={block.id}
+                     backgroundColor={block.attributes.backgroundColor}
           />
         );
       }
