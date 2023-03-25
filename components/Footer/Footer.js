@@ -58,6 +58,7 @@ export const Footer = () => {
                 objectFit="cover"
               />
             </div>
+          </div>
         </div>
       </div>
       <div className="bg-slate-700 text-white py-4">
