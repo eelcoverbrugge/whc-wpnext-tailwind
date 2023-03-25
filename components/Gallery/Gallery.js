@@ -1,6 +1,6 @@
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 
-export const Gallery = ({ columns, cropImages, items }) => {
+export const Gallery = ({ cropImages, items }) => {
   let maxHeigth = 0;
   let maxWidth = 0;
 
@@ -36,8 +36,8 @@ export const Gallery = ({ columns, cropImages, items }) => {
       <div className="flex">
         <div id="previous"
              onClick={prevSlide}
-             className="text-5xl text-slate-700 opacity-50 transition duration-250 ease-in-out hover:opacity-100 flex justify-center items-center cursor-pointer p-2 relative">
-          <FaAngleLeft size={30} />
+             className="text-5xl text-slate-700 opacity-50 transition duration-250 ease-in-out hover:opacity-100 flex justify-center items-center cursor-pointer p-1 sm:p2 relative">
+          <FaAngleLeft className="w-[15px] md:w-[30px]" />
         </div>
         <div id="carousel" className="flex w-full flex-1 scroll-smooth gap-4 snap-x overflow-x-auto overflow-x-hidden">
           {items.map(item => (
@@ -49,8 +49,8 @@ export const Gallery = ({ columns, cropImages, items }) => {
         </div>
         <div id="next"
              onClick={nextSlide}
-             className="text-5xl text-slate-700 opacity-50 transition duration-250 ease-in-out hover:opacity-100  flex justify-center items-center cursor-pointer p-2 relative">
-          <FaAngleRight size={30} />
+             className="text-5xl text-slate-700 opacity-50 transition duration-250 ease-in-out hover:opacity-100 flex justify-center items-center cursor-pointer p-1 sm:p2 relative">
+          <FaAngleRight className="w-[15px] md:w-[30px]" />
         </div>
       </div>
     </>

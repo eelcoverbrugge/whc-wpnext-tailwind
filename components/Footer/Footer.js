@@ -12,7 +12,7 @@ export const Footer = () => {
     <>
       <div className="py-4 bg-gray-50">
         <div className="max-w-screen-lg mx-auto">
-          <div className="flex justify-around">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 mx-auto items-center justify-items-center gap-5">
             <div className="">
               <Image
                 src={Logo1}
@@ -61,7 +61,7 @@ export const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="bg-slate-700 text-white py-4">
+      <div className="bg-slate-700 text-white py-4 px-4">
         <div className="max-w-screen-lg mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             <div>
