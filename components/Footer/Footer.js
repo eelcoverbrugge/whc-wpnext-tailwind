@@ -6,12 +6,11 @@ import Logo2 from "../../assets/images/logo-partner-02.png";
 import Logo3 from "../../assets/images/logo-partner-03.png";
 import Logo4 from "../../assets/images/logo-partner-04.png";
 import Logo5 from "../../assets/images/logo-partner-05.png";
-import Logo6 from "../../assets/images/logo-serra-foundation.png";
 
 export const Footer = () => {
   return (
     <>
-      <div className="py-4">
+      <div className="py-4 bg-gray-50">
         <div className="max-w-screen-lg mx-auto">
           <div className="flex justify-around">
             <div className="">
@@ -59,7 +58,6 @@ export const Footer = () => {
                 objectFit="cover"
               />
             </div>
-          </div>
         </div>
       </div>
       <div className="bg-slate-700 text-white py-4">

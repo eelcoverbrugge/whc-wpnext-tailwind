@@ -118,6 +118,8 @@ export const BlockRenderer = ({ blocks }) => {
                     theme[block.attributes.backgroundColor] ||
                     block.attributes.style?.color?.background
                   }
+                  padding={block.attributes.style?.spacing?.padding}
+                  border={block.attributes.style?.border}
           >
             <BlockRenderer blocks={block.innerBlocks} />
           </Column>
@@ -128,12 +130,14 @@ export const BlockRenderer = ({ blocks }) => {
         return <BlockRenderer key={block.id} blocks={block.innerBlocks} />;
       }
       case "core/image": {
+        const layout = block.attributes.sizeSlug === "full" ? "responsive" : "";
         return (
           <Image key={block.id}
                  src={block.attributes.url}
                  height={block.attributes.height}
                  width={block.attributes.width}
                  alt={block.attributes.alt || ""}
+                 layout={layout}
           />
         );
       }

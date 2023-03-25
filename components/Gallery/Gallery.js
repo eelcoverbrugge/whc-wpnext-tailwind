@@ -1,5 +1,4 @@
-import { FaAngleRight, FaAngleLeft, FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
-import { useState } from "react";
+import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 
 export const Gallery = ({ columns, cropImages, items }) => {
   let maxHeigth = 0;
@@ -16,7 +15,7 @@ export const Gallery = ({ columns, cropImages, items }) => {
     });
   }
 
-  const columnWidth = 100 / columns;
+  // const columnWidth = 100 / columns;
 
   const prevSlide = () => {
     const carousel = document.getElementById('carousel');
@@ -37,23 +36,20 @@ export const Gallery = ({ columns, cropImages, items }) => {
       <div className="flex">
         <div id="previous"
              onClick={prevSlide}
-             className="text-5xl text-slate-700 opacity-50 transition duration-250 ease-in-out hover:opacity-100 flex justify-center items-center cursor-pointer p-2 relative -top-8">
+             className="text-5xl text-slate-700 opacity-50 transition duration-250 ease-in-out hover:opacity-100 flex justify-center items-center cursor-pointer p-2 relative">
           <FaAngleLeft size={30} />
         </div>
         <div id="carousel" className="flex w-full flex-1 scroll-smooth gap-4 snap-x overflow-x-auto overflow-x-hidden">
-          {items.map((item, index) => (
+          {items.map(item => (
             <div key={item.id} className={`min-w-[80%] md:min-w-[40%]`}>
               <div className="h-[400px] w-full snap-center bg-cover bg-center"
-                   style={{ backgroundImage: `url(${item.attributes.url})` }}
-              ></div>
-              <h4 className="mt-2">Eelco Verbrugge</h4>
-              <h5>Gitarist</h5>
+                   style={{ backgroundImage: `url(${item.attributes.url})` }}/>
             </div>
           ))}
         </div>
         <div id="next"
              onClick={nextSlide}
-             className="text-5xl text-slate-700 opacity-50 transition duration-250 ease-in-out hover:opacity-100  flex justify-center items-center cursor-pointer p-2 relative -top-8">
+             className="text-5xl text-slate-700 opacity-50 transition duration-250 ease-in-out hover:opacity-100  flex justify-center items-center cursor-pointer p-2 relative">
           <FaAngleRight size={30} />
         </div>
       </div>
