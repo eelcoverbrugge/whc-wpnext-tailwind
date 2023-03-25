@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        heading: ["Bebas+Neue", "cursive"],
+        heading: ["Bebas Neue", "cursive"],
         body: ["Roboto", "sans-serif"],
       },
     },

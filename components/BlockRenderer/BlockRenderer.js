@@ -12,6 +12,7 @@ import { FormspreeForm } from "../FormspreeForm";
 import { PropertyFeatures } from "../PropertyFeatures";
 import { Gallery } from "../Gallery";
 import { TickItem } from "../TickItem";
+import { Spacer } from "../Spacer";
 
 export const BlockRenderer = ({ blocks }) => {
   return blocks.map(block => {
@@ -135,8 +136,16 @@ export const BlockRenderer = ({ blocks }) => {
           />
         );
       }
+      case "core/spacer": {
+        // console.log("SPACER: ", block);
+        return (
+          <Spacer key={block.id}
+                  height={block.attributes.height}
+          />
+        );
+      }
       default: {
-        // console.log("UNKNOWN", block);
+        console.log("UNKNOWN", block);
         return null;
       }
     }
