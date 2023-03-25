@@ -12,6 +12,8 @@ import { FormspreeForm } from "../FormspreeForm";
 import { PropertyFeatures } from "../PropertyFeatures";
 import { Gallery } from "../Gallery";
 import { TickItem } from "../TickItem";
+import { Spacer } from "../Spacer";
+import { Separator } from "../Separator";
 
 export const BlockRenderer = ({ blocks }) => {
   return blocks.map(block => {
@@ -103,7 +105,7 @@ export const BlockRenderer = ({ blocks }) => {
         </Columns>;
       }
       case "core/column": {
-        // console.log("BLOCK: ", block);
+        // console.log("COLUMN: ", block);
         // console.log("block.innerBlocks: ", block.innerBlocks);
         return (
           <Column key={block.id}
@@ -116,6 +118,8 @@ export const BlockRenderer = ({ blocks }) => {
                     theme[block.attributes.backgroundColor] ||
                     block.attributes.style?.color?.background
                   }
+                  padding={block.attributes.style?.spacing?.padding}
+                  border={block.attributes.style?.border}
           >
             <BlockRenderer blocks={block.innerBlocks} />
           </Column>
@@ -126,17 +130,35 @@ export const BlockRenderer = ({ blocks }) => {
         return <BlockRenderer key={block.id} blocks={block.innerBlocks} />;
       }
       case "core/image": {
+        const layout = block.attributes.sizeSlug === "full" ? "responsive" : "";
         return (
           <Image key={block.id}
                  src={block.attributes.url}
                  height={block.attributes.height}
                  width={block.attributes.width}
                  alt={block.attributes.alt || ""}
+                 layout={layout}
+          />
+        );
+      }
+      case "core/spacer": {
+        // console.log("SPACER: ", block);
+        return (
+          <Spacer key={block.id}
+                  height={block.attributes.height}
+          />
+        );
+      }
+      case "core/separator": {
+        // console.log("SEPERATOR: ", block);
+        return (
+          <Separator key={block.id}
+                     backgroundColor={block.attributes.backgroundColor}
           />
         );
       }
       default: {
-        // console.log("UNKNOWN", block);
+        console.log("UNKNOWN", block);
         return null;
       }
     }

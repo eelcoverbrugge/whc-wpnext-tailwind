@@ -8,7 +8,7 @@ export const CallToActionButton = ({ align, buttonLabel, destination }) => {
   }
   return (
     <div className={alignMap[align]}>
-      <ButtonLink destination={destination} label={buttonLabel} />
+      <ButtonLink destination={destination} label={buttonLabel} cta={true} />
     </div>
   );
 };
