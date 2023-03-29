@@ -6,7 +6,7 @@ import { CallToActionButton } from "../CallToActionButton";
 import { Columns } from "../Columns";
 import { Column } from "../Column";
 import Image from "next/image";
-import { PropertySearch } from "../PropertySearch";
+import { AgendaItemSearch } from "../AgendaItemSearch";
 import { PostTitle } from "../PostTitle";
 import { FormspreeForm } from "../FormspreeForm";
 import { PropertyFeatures } from "../PropertyFeatures";
@@ -44,8 +44,16 @@ export const BlockRenderer = ({ blocks }) => {
                                    align={block.attributes.data.align}
         />;
       }
-      case "acf/propertysearch": {
-        return <PropertySearch key={block.id}
+      case "acf/agendaitemsearch": {
+        // console.log("AgendaItemSearch: ", block)
+        return <AgendaItemSearch key={block.id}
+                                 withSearch={true}
+        />;
+      }
+      case "acf/agendaitems": {
+        // console.log("AgendaItem: ", block)
+        return <AgendaItemSearch key={block.id}
+                                 withSearch={false}
         />;
       }
       case "core/paragraph": {

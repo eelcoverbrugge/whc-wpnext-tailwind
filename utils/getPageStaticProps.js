@@ -29,6 +29,23 @@ export const getPageStaticProps = async (context) => {
               }
             }
           }
+          nodeByUri(uri: $uri) {
+            id
+            ... on AgendaItem {
+              id
+              title
+              blocksJSON
+              featuredImage {
+                node {
+                  sourceUrl
+                }
+              }
+              seo {
+                title
+                metaDesc
+              }
+            }
+          }
           acfOptionsMainMenu {
             mainMenu {
               callToActionButton {
@@ -108,7 +125,7 @@ export const getPageStaticProps = async (context) => {
   });
 
   const blocks = cleanAndTransformBlocks(data.nodeByUri.blocksJSON);
-console.log("data.acfOptionsFooterMenu.footerMenu.menuItems: ", data.acfOptionsFooterMenu.footerMenu.logos)
+// console.log("data.acfOptionsFooterMenu.footerMenu.menuItems: ", data.acfOptionsFooterMenu.footerMenu.logos)
   return {
     props: {
       seo: data.nodeByUri.seo,
