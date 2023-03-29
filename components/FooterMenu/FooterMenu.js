@@ -8,7 +8,7 @@ export const FooterMenu = ({ items, company, logos }) => {
     <>
       <div className="py-4 bg-gray-50">
         <div className="max-w-screen-lg mx-auto">
-          <div className={`grid grid-cols-1 gap-1 sm:grid-cols-${Math.round(logos.length/2)} ms:gap-${Math.round(logos.length/2)} md:grid-cols-${Math.round(logos.length)} md:gap-${Math.round(logos.length)} mx-auto items-center justify-items-center`}>
+          <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 lg:gap-8 mx-auto items-center justify-items-center`}>
             {(logos || []).map(item => (
               <div key={item.id}>
                 <Image
