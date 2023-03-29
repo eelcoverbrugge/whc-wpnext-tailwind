@@ -3,7 +3,6 @@ export const Column = ({ children, width, textColor, backgroundColor, padding, b
   const backgroundColorStyle = backgroundColor ? { backgroundColor } : {};
   const widthStyle = width ? { minWidth: width, flexGrow: 1 } : { flexGrow: 1, flexBasis: 0 };
 
-  console.log(padding)
   const paddingTop = padding?.top ? padding?.top.match(/\d/g).join("")/10 : ""; //40
   const paddingRight = padding?.right ? padding?.right.match(/\d/g).join("")/10 : ""; //40
   const paddingBottom = padding?.bottom ? padding?.bottom.match(/\d/g).join("")/10 : ""; //40
@@ -17,7 +16,6 @@ export const Column = ({ children, width, textColor, backgroundColor, padding, b
   let paddingX = "";
 
   if (paddingTop && paddingTop === paddingBottom) {
-    console.log(paddingTop)
     paddingT = "";
     paddingB = "";
     paddingY = `py-${paddingTop}`;
