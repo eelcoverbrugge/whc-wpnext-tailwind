@@ -1,64 +1,25 @@
 import Link from "next/link";
 import { FaFacebook, FaYoutube } from "react-icons/fa";
 import Image from "next/image";
-import Logo1 from "../../assets/images/logo-1.png";
-import Logo2 from "../../assets/images/logo-partner-02.png";
-import Logo3 from "../../assets/images/logo-partner-03.png";
-import Logo4 from "../../assets/images/logo-partner-04.png";
-import Logo5 from "../../assets/images/logo-partner-05.png";
 
-export const FooterMenu = ({ items, company }) => {
+export const FooterMenu = ({ items, company, logos }) => {
   // console.log("FOOTER MENU: ", items);
   return (
     <>
       <div className="py-4 bg-gray-50">
         <div className="max-w-screen-lg mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 mx-auto items-center justify-items-center gap-5">
-            <div className="">
-              <Image
-                src={Logo1}
-                alt="logo1"
-                width="61"
-                height="62"
-                objectFit="cover"
-              />
-            </div>
-            <div className="">
-              <Image
-                src={Logo2}
-                alt="logo2"
-                width="153"
-                height="59"
-                objectFit="cover"
-              />
-            </div>
-            <div className="">
-              <Image
-                src={Logo3}
-                alt="logo13"
-                width="98"
-                height="60"
-                objectFit="cover"
-              />
-            </div>
-            <div className="">
-              <Image
-                src={Logo4}
-                alt="logo4"
-                width="117"
-                height="61"
-                objectFit="cover"
-              />
-            </div>
-            <div className="">
-              <Image
-                src={Logo5}
-                alt="logo5"
-                width="70"
-                height="60"
-                objectFit="cover"
-              />
-            </div>
+          <div className={`grid grid-cols-1 gap-1 sm:grid-cols-${Math.round(logos.length/2)} ms:gap-${Math.round(logos.length/2)} md:grid-cols-${Math.round(logos.length)} md:gap-${Math.round(logos.length)} mx-auto items-center justify-items-center`}>
+            {(logos || []).map(item => (
+              <div key={item.id}>
+                <Image
+                  src={item.logo.link}
+                  alt={item.logo.altText}
+                  width={item.logo.mediaDetails.width}
+                  height={item.logo.mediaDetails.height}
+                  objectFit="cover"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>

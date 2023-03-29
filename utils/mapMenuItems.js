@@ -1,6 +1,6 @@
 import {v4 as uuid} from 'uuid'
 export const mapMenuItems = (menuItems) => {
-  console.log("menuItems",menuItems)
+  // console.log("menuItems",menuItems)
   return menuItems.map((menuItem) => ({
     id: uuid(),
     destination: menuItem.menuItem.destination?.uri || "",

@@ -23,7 +23,10 @@ export const Page = (props) => {
                 callToActionDestination={props.callToActionDestination}
       />
       <BlockRenderer blocks={props.blocks} />
-      <FooterMenu items={props.footerMenuItems} company={props.footerCompany} />
+      <FooterMenu items={props.footerMenuItems}
+                  company={props.footerCompany}
+                  logos={props.footerLogos}
+      />
     </PageWrapper>
   );
 };

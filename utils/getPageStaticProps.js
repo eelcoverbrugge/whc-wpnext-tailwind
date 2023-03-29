@@ -87,6 +87,17 @@ export const getPageStaticProps = async (context) => {
                 name
                 url
               }
+               logos {
+                logo {
+                  altText
+                  link
+                  mediaDetails {
+                    height
+                    width
+                  }
+                  id
+                }
+              }
             }
           }
         }
@@ -97,7 +108,7 @@ export const getPageStaticProps = async (context) => {
   });
 
   const blocks = cleanAndTransformBlocks(data.nodeByUri.blocksJSON);
-// console.log("data.acfOptionsFooterMenu.footerMenu.menuItems: ", data.acfOptionsFooterMenu.footerMenu.menuItems)
+console.log("data.acfOptionsFooterMenu.footerMenu.menuItems: ", data.acfOptionsFooterMenu.footerMenu.logos)
   return {
     props: {
       seo: data.nodeByUri.seo,
@@ -106,6 +117,7 @@ export const getPageStaticProps = async (context) => {
       featuredImage: data.nodeByUri.featuredImage?.node?.sourceUrl || null,
       mainMenuItems: mapMenuItems(data.acfOptionsMainMenu.mainMenu.menuItems),
       footerMenuItems: mapMenuItems(data.acfOptionsFooterMenu.footerMenu.menuItems),
+      footerLogos: data.acfOptionsFooterMenu.footerMenu.logos,
       footerCompany: {
         companyAddress: data.acfOptionsFooterMenu.footerMenu.companyAddress,
         companyAddress2: data.acfOptionsFooterMenu.footerMenu.companyAddress2,
