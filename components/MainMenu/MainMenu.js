@@ -41,13 +41,11 @@ export const MainMenu = ({ items, callToActionLabel, callToActionDestination }) 
         <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
           <div>
             <div className="flex items-center justify-between py-3 md:block">
-              <Link href="/">
                 <Image src={WhcLogo}
                        height="45"
                        width="201"
                        alt="logo"
                 />
-              </Link>
               <div className="md:hidden">
                 <button
                   className="p-2 text-white"

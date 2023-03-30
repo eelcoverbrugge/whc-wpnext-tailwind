@@ -47,13 +47,13 @@ export const BlockRenderer = ({ blocks }) => {
       case "acf/agendaitemsearch": {
         // console.log("AgendaItemSearch: ", block)
         return <AgendaItemSearch key={block.id}
-                                 withSearch={true}
+                                 withPagination={true}
         />;
       }
       case "acf/agendaitems": {
         // console.log("AgendaItem: ", block)
         return <AgendaItemSearch key={block.id}
-                                 withSearch={false}
+                                 withPagination={false}
         />;
       }
       case "core/paragraph": {
