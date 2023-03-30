@@ -28,21 +28,18 @@ export const getPageStaticProps = async (context) => {
                 metaDesc
               }
             }
-          }
-          nodeByUri(uri: $uri) {
-            id
             ... on AgendaItem {
               id
               title
               blocksJSON
+              seo {
+                title
+                metaDesc
+              }
               featuredImage {
                 node {
                   sourceUrl
                 }
-              }
-              seo {
-                title
-                metaDesc
               }
             }
           }
