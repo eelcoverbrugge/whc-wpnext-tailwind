@@ -44,16 +44,16 @@ export const BlockRenderer = ({ blocks }) => {
                                    align={block.attributes.data.align}
         />;
       }
-      case "acf/agendaitemsearch": {
-        // console.log("AgendaItemSearch: ", block)
+      case "acf/agendaitemsfeatured": {
+        console.log("AgendaItemFeatured: ", block)
         return <AgendaItemSearch key={block.id}
-                                 withPagination={true}
+                                 size={3}
         />;
       }
       case "acf/agendaitems": {
-        // console.log("AgendaItem: ", block)
+        console.log("AgendaItem: ", block)
         return <AgendaItemSearch key={block.id}
-                                 withPagination={false}
+                                 size={6}
         />;
       }
       case "core/paragraph": {

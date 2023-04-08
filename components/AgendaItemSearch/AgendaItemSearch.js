@@ -4,30 +4,30 @@ import { Pagination } from "./Pagination";
 import { useRouter } from "next/router";
 import queryString from "query-string";
 
-export const AgendaItemSearch = () => {
+export const AgendaItemSearch = ({size}) => {
   const [agendaItems, setAgendaItems] = useState([]);
-  const [totalResults, setTotalResults] = useState(0);
-  const [isLoading, setIsLoading] = useState(false);
-  const pageSize = 3;
+  const [totalResults, setTotalResults] = useState([]);
+  const pageSize = size;
   const router = useRouter();
 
   const search = async () => {
-    setIsLoading(true);
-    const { page } = queryString.parse(window.location.search);
-    console.log("page: ",page)
+    const {
+      page,
+    } = queryString.parse(window.location.search);
+
     const response = await fetch(`/api/search`, {
-      method: 'POST',
+      method: "POST",
       body: JSON.stringify({
         page: parseInt(page || "1"),
-      }),
+        size: parseInt(pageSize || "3"),
+      })
     });
-    console.log("RESPONSE: ",response)
+
     const data = await response.json();
     console.log("SEARCH DATA", data);
 
     setAgendaItems(data.agendaItems);
     setTotalResults(data.total);
-    setIsLoading(false);
   };
 
   const handlePageClick = async (pageNumber) => {
@@ -41,15 +41,13 @@ export const AgendaItemSearch = () => {
     search();
   }, []);
 
-  if (isLoading) {
-    return (<div>Loading...</div>)
-  }
 
   return (
     <div>
-      AgendaItemSearch
       <Results agendaItems={agendaItems} />
-      <Pagination onPageClick={handlePageClick} totalPages={Math.ceil(totalResults / pageSize)} />
+      {pageSize !== 3 &&
+        <Pagination onPageClick={handlePageClick} totalPages={Math.ceil(totalResults / pageSize)} />
+      }
     </div>
   );
 };
