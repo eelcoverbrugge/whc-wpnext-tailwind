@@ -32,15 +32,6 @@ export const getPageStaticProps = async (context) => {
               id
               title
               blocksJSON
-              seo {
-                title
-                metaDesc
-              }
-              featuredImage {
-                node {
-                  sourceUrl
-                }
-              }
             }
           }
           acfOptionsMainMenu {
@@ -125,7 +116,7 @@ export const getPageStaticProps = async (context) => {
 // console.log("data.acfOptionsFooterMenu.footerMenu.menuItems: ", data.acfOptionsFooterMenu.footerMenu.logos)
   return {
     props: {
-      seo: data.nodeByUri.seo,
+      seo: data.nodeByUri.seo || null,
       blocks,
       title: data.nodeByUri.title,
       featuredImage: data.nodeByUri.featuredImage?.node?.sourceUrl || null,

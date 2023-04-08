@@ -15,8 +15,8 @@ export const Page = (props) => {
       }}
     >
       <Head>
-        <title>{props.seo.title}</title>
-        <meta name="description" content={props.seo.metaDesc} />
+        <title>{props.seo?.title}</title>
+        <meta name="description" content={props.seo?.metaDesc} />
       </Head>
       <MainMenu items={props.mainMenuItems}
                 callToActionLabel={props.callToActionLabel}
