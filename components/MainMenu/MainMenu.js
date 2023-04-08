@@ -45,6 +45,7 @@ export const MainMenu = ({ items, callToActionLabel, callToActionDestination }) 
                        height="45"
                        width="201"
                        alt="logo"
+                       priority
                 />
               <div className="md:hidden">
                 <button

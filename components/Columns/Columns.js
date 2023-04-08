@@ -8,7 +8,7 @@ export const Columns = ({
   const backgroundColorStyle = backgroundColor ? { backgroundColor } : {};
   return (
     <div style={{...textColorStyle, ...backgroundColorStyle}}>
-      <div className={`max-w-5xl mx-2 md:mx-5 lg:mx-auto ${isStackedOnMobile ? "block md:flex" : "flex"}`}>
+      <div className={`max-w-7xl mx-2 md:mx-5 lg:mx-auto ${isStackedOnMobile ? "block md:flex" : "flex"}`}>
         {children}
       </div>
     </div>

@@ -4,22 +4,26 @@ import { Pagination } from "./Pagination";
 import { useRouter } from "next/router";
 import queryString from "query-string";
 
-export const AgendaItemSearch = ({withPagination}) => {
+export const AgendaItemSearch = ({size}) => {
   const [agendaItems, setAgendaItems] = useState([]);
-  const [totalResults, setTotalResults] = useState(0);
-  const pageSize = 3;
+  const [totalResults, setTotalResults] = useState([]);
+  const pageSize = size;
   const router = useRouter();
 
   const search = async () => {
-    const { page } = queryString.parse(window.location.search);
+    const {
+      page,
+    } = queryString.parse(window.location.search);
+
     const response = await fetch(`/api/search`, {
       method: "POST",
       body: JSON.stringify({
         page: parseInt(page || "1"),
+        size: parseInt(pageSize || "3"),
       })
     });
+
     const data = await response.json();
-    console.log("SEARCH DATA", data);
 
     setAgendaItems(data.agendaItems);
     setTotalResults(data.total);
@@ -40,7 +44,9 @@ export const AgendaItemSearch = ({withPagination}) => {
   return (
     <div>
       <Results agendaItems={agendaItems} />
-      {withPagination && <Pagination onPageClick={handlePageClick} totalPages={Math.ceil(totalResults / pageSize)} />}
+      {pageSize !== 3 &&
+        <Pagination onPageClick={handlePageClick} totalPages={Math.ceil(totalResults / pageSize)} />
+      }
     </div>
   );
 };

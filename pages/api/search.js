@@ -4,19 +4,27 @@ import client from "../../client";
 const handler = async (req, res) => {
   try {
     const filters = JSON.parse(req.body);
-    const offset = ((filters.page || 1) - 1) * 3;
+    const offset = ((filters.page || 1) - 1) * filters.size;
+    const size = filters.size;
 
     const { data } = await client.query({
       query: gql`
         query AllAgendaItemsQuery {
-          agendaItems(where: {offsetPagination: {size: 3, offset: ${offset} ) {
-          pageInfo {
+          agendaItems(where: 
+            {
+              offsetPagination: 
+              { 
+                size: ${size}, 
+                offset: ${offset} 
+              }
+            }) {
+            pageInfo {
               offsetPagination {
                 total
               }
             }
             nodes {
-              databaseId
+            databaseId
               title
               uri
               featuredImage {
@@ -26,8 +34,8 @@ const handler = async (req, res) => {
                 }
               }
               agendaItems {
-                date
                 text
+                date
                 tickets
               }
             }

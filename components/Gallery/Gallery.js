@@ -33,16 +33,16 @@ export const Gallery = ({ cropImages, items }) => {
 
   return (
     <>
-      <div className="flex">
+      <div className="my-16 flex">
         <div id="previous"
              onClick={prevSlide}
              className="text-5xl text-slate-700 opacity-50 transition duration-250 ease-in-out hover:opacity-100 flex justify-center items-center cursor-pointer p-1 sm:p2 relative">
-          <FaAngleLeft className="w-[15px] md:w-[30px]" />
+          <FaAngleLeft className="w-[20px] md:w-[30px]" />
         </div>
         <div id="carousel" className="flex w-full flex-1 scroll-smooth gap-4 snap-x overflow-x-auto overflow-x-hidden">
           {items.map(item => (
             <div key={item.id} className={`min-w-[80%] md:min-w-[40%]`}>
-              <div className="h-[400px] w-full snap-center bg-cover bg-center"
+              <div className="h-[600px] w-full snap-center bg-cover bg-center"
                    style={{ backgroundImage: `url(${item.attributes.url})` }}/>
             </div>
           ))}
@@ -50,7 +50,7 @@ export const Gallery = ({ cropImages, items }) => {
         <div id="next"
              onClick={nextSlide}
              className="text-5xl text-slate-700 opacity-50 transition duration-250 ease-in-out hover:opacity-100 flex justify-center items-center cursor-pointer p-1 sm:p2 relative">
-          <FaAngleRight className="w-[15px] md:w-[30px]" />
+          <FaAngleRight className="w-[20px] md:w-[30px]" />
         </div>
       </div>
     </>

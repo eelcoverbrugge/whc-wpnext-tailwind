@@ -24,7 +24,7 @@ export const Filters = ({ onSearch }) => {
   }, []);
 
   return (
-    <div className="max-w-5xl mx-auto my-5 flex gap-5 border-solid border-slate-400 border-2 p-5 rounded-md">
+    <div className="max-w-7xl mx-auto my-5 flex gap-5 border-solid border-slate-400 border-2 p-5 rounded-md">
       <div className="flex-1 flex">
         <div>
           <label htmlFor="">

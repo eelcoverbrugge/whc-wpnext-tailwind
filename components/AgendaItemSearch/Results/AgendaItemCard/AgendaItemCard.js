@@ -11,16 +11,16 @@ export const AgendaItemCard = ({
                              }) => {
   return (
     <Link href={destination}>
-      <a className="first:border-b-2 first:border-slate-700 hover:border-b-2 hover:border-slate-700 p-5 block">
-        <div className="flex w-full">
-          <Image
-            src={image}
-                 height="200px"
-                 width="300px"
-                 objectFill="cover"
-                 alt=""
-          />
-        </div>
+      <a className="border-b-2 border-white first:border-slate-700 hover:border-b-2 hover:border-slate-700 p-5 block">
+        {/*<div className="flex w-full">*/}
+        {/*  {image && <Image*/}
+        {/*    src={image}*/}
+        {/*    height="200px"*/}
+        {/*    width="300px"*/}
+        {/*    objectFill="cover"*/}
+        {/*    alt=""*/}
+        {/*  />}*/}
+        {/*</div>*/}
         <div className="font-heading mt-3 text-2xl ">{title}</div>
         <div className="">{date}</div>
         <div className="">{text}</div>
