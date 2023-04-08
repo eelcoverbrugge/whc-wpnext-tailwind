@@ -8,7 +8,7 @@ export const FormspreeForm = ({ formId }) => {
     return <p>Thanks for joining!</p>;
   }
   return (
-    <form onSubmit={handleSubmit} className="max-w-5xl mx-auto my-5">
+    <form onSubmit={handleSubmit} className="max-w-7xl mx-auto my-5">
       <label htmlFor="email">
         Email Address
       </label>

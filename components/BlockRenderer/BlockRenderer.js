@@ -45,13 +45,13 @@ export const BlockRenderer = ({ blocks }) => {
         />;
       }
       case "acf/agendaitemsfeatured": {
-        console.log("AgendaItemFeatured: ", block)
+        // console.log("AgendaItemFeatured: ", block)
         return <AgendaItemSearch key={block.id}
                                  size={3}
         />;
       }
       case "acf/agendaitems": {
-        console.log("AgendaItem: ", block)
+        // console.log("AgendaItem: ", block)
         return <AgendaItemSearch key={block.id}
                                  size={6}
         />;
@@ -166,7 +166,7 @@ export const BlockRenderer = ({ blocks }) => {
         );
       }
       default: {
-        console.log("UNKNOWN", block);
+        // console.log("UNKNOWN", block);
         return null;
       }
     }

@@ -24,7 +24,6 @@ export const AgendaItemSearch = ({size}) => {
     });
 
     const data = await response.json();
-    console.log("SEARCH DATA", data);
 
     setAgendaItems(data.agendaItems);
     setTotalResults(data.total);
