@@ -67,7 +67,7 @@ export const MainMenu = ({ items, callToActionLabel, callToActionDestination }) 
                 {(items || []).map(item => (
                   <li key={item.id} className="text-white">
                     <Link href={item.destination}>
-                      <a className="font-bold uppercase">{item.label}</a>
+                      <a onClick={() => setNavbar(!navbar)} className="font-bold uppercase">{item.label}</a>
                     </Link>
                   </li>
                 ))}
