@@ -29,24 +29,28 @@ export const MainMenu = ({ items, callToActionLabel, callToActionDestination }) 
 
   const handleScroll = () => {
     setClientWindowHeight(window.scrollY);
-  }
+  };
 
   return (
     <>
       <nav className="w-full sticky top-0 z-20"
            style={{
              background: `rgba(41, 34, 56, ${true === navbar ? 1 : backgroundTransparancy})`,
-             boxShadow: `rgb(0 0 0 / ${boxShadow}) 0px 0px 20px 6px`,
+             boxShadow: `rgb(0 0 0 / ${boxShadow}) 0px 0px 20px 6px`
            }}>
         <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
           <div>
             <div className="flex items-center justify-between py-3 md:block">
-                <Image src={WhcLogo}
-                       height="45"
-                       width="201"
-                       alt="logo"
-                       priority
-                />
+              <Link href="/">
+                <a>
+                  <Image src={WhcLogo}
+                         height="45"
+                         width="201"
+                         alt="logo"
+                         priority
+                  />
+                </a>
+              </Link>
               <div className="md:hidden">
                 <button
                   className="p-2 text-white"
@@ -60,7 +64,7 @@ export const MainMenu = ({ items, callToActionLabel, callToActionDestination }) 
           <div>
             <div
               className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
-                navbar ? 'block' : 'hidden'
+                navbar ? "block" : "hidden"
               }`}
             >
               <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
