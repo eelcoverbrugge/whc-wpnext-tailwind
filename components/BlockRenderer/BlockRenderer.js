@@ -8,7 +8,7 @@ import { Column } from "../Column";
 import Image from "next/image";
 import { AgendaItem } from "../AgendaItem";
 import { PostTitle } from "../PostTitle";
-import { FormspreeForm } from "../FormspreeForm";
+import { Form } from "../Form";
 import { PropertyFeatures } from "../PropertyFeatures";
 import { Gallery } from "../Gallery";
 import { TickItem } from "../TickItem";
@@ -32,8 +32,8 @@ export const BlockRenderer = ({ blocks }) => {
       }
       case "acf/formspreeform": {
         // console.log("BLOCK: ", block);
-        return <FormspreeForm key={block.id}
-                              formId={block.attributes.data.form_id}
+        return <Form key={block.id}
+                     formId={block.attributes.data.form_id}
         />;
       }
       case "acf/ctabutton": {

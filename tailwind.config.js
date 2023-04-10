@@ -16,6 +16,7 @@ module.exports = {
         'secondaryColor': '#36374e',
         'tertiaryColor': '#cbcdef',
         'quaternaryColor': '#f7f8fd',
+        'fifth': '#d9dcf8',
       },
     },
   },
