@@ -20,7 +20,7 @@ export const AgendaItemCard = ({
         />}
       </div>
       <div className="w-full md:w-2/4 px-4 flex flex-col">
-        <div><h3 className="font-heading max-w-7xl lg:mx-auto text-5xl font-medium tracking-wider">{title}</h3></div>
+        <div><h3 className="font-heading max-w-7xl lg:mx-auto text-3xl font-medium tracking-wider">{title}</h3></div>
         <div>{date}</div>
         <div>{text}</div>
       </div>

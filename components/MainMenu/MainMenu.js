@@ -72,7 +72,7 @@ export const MainMenu = ({ items, callToActionLabel, callToActionDestination }) 
             >
               <ul className="items-center justify-center space-y-8 md:flex md:space-x-1 lg:space-x-4 md:space-y-0">
                 {(items || []).map(item => (
-                  <li key={item.id} className={`relative w-fit block after:block after:content-[''] after:absolute after:bottom-[-7px] after:h-[3px] after:bg-secondaryColor after:w-full ${router.asPath.replace(/\//g, '') === item.destination.replace(/\//g, '') ? "" : "after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center"}`}>
+                  <li key={item.id} className={`relative w-fit block after:block after:content-[''] after:absolute after:bottom-[-7px] after:h-[3px] after:bg-tertiaryColor after:w-full ${router.asPath.replace(/\//g, '') === item.destination.replace(/\//g, '') ? "" : "after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center"}`}>
                     <Link href={item.destination}>
                       <a onClick={() => setNavbar(!navbar)}
                          className={`text-white p-2 font-bold uppercase`}>

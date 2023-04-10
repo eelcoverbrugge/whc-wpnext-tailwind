@@ -48,7 +48,7 @@ export const Form = ({ formId }) => {
           errors={state.errors}
         />
 
-        <label htmlFor="bericht" className="w-full">Bericht*</label>
+        <label htmlFor="bericht" className="w-full">Bericht</label>
         <textarea
           id="bericht"
           name="bericht"
