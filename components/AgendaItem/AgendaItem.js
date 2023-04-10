@@ -4,7 +4,7 @@ import { Pagination } from "./Pagination";
 import { useRouter } from "next/router";
 import queryString from "query-string";
 
-export const AgendaItemSearch = ({size}) => {
+export const AgendaItem = ({size}) => {
   const [agendaItems, setAgendaItems] = useState([]);
   const [totalResults, setTotalResults] = useState([]);
   const pageSize = size;

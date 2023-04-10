@@ -6,7 +6,7 @@ import { CallToActionButton } from "../CallToActionButton";
 import { Columns } from "../Columns";
 import { Column } from "../Column";
 import Image from "next/image";
-import { AgendaItemSearch } from "../AgendaItemSearch";
+import { AgendaItem } from "../AgendaItem";
 import { PostTitle } from "../PostTitle";
 import { FormspreeForm } from "../FormspreeForm";
 import { PropertyFeatures } from "../PropertyFeatures";
@@ -46,14 +46,14 @@ export const BlockRenderer = ({ blocks }) => {
       }
       case "acf/agendaitemsfeatured": {
         // console.log("AgendaItemFeatured: ", block)
-        return <AgendaItemSearch key={block.id}
-                                 size={3}
+        return <AgendaItem key={block.id}
+                           size={3}
         />;
       }
       case "acf/agendaitems": {
         // console.log("AgendaItem: ", block)
-        return <AgendaItemSearch key={block.id}
-                                 size={6}
+        return <AgendaItem key={block.id}
+                           size={6}
         />;
       }
       case "core/paragraph": {
