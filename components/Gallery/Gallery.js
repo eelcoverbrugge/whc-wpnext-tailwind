@@ -42,7 +42,7 @@ export const Gallery = ({ cropImages, items }) => {
         <div id="carousel" className="flex w-full flex-1 scroll-smooth gap-4 snap-x overflow-x-auto overflow-x-hidden">
           {items.map(item => (
             <div key={item.id} className={`min-w-[80%] md:min-w-[40%]`}>
-              <div className="h-[600px] w-full snap-center bg-cover bg-center"
+              <div className="h-[400px] md:h-[600px] w-full snap-center bg-cover bg-center"
                    style={{ backgroundImage: `url(${item.attributes.url})` }}/>
             </div>
           ))}
