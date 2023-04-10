@@ -25,7 +25,7 @@ export const FormspreeForm = ({ formId }) => {
       <textarea
         id="message"
         name="message"
-        className="border-2 border-slate-400 p-1 hover:border-slate-500"
+        className="border-2 border-primaryColor p-1 hover:border-primaryColor"
       />
       <ValidationError
         prefix="Message"

@@ -8,7 +8,7 @@ export const PropertyFeatures = () => {
   // console.log("propertyFeatures: ", propertyFeatures);
   return (
     <div>
-      <div className="max-w-lg mx-auto my-10 bg-white text-slate-900 p-5 text-center
+      <div className="max-w-lg mx-auto my-10 bg-white text-primaryColor p-5 text-center
       ">
         <div className="grid grid-cols-2-mb-4-gap-y-5">
           <div>

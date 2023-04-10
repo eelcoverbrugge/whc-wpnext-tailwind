@@ -4,7 +4,6 @@ export const theme = {
   primary: "#1a4548",
   secondary: "#ffe2c7",
   tertiary: "#F6F6F6",
-  slate: "#1E293B",
   greyish: "#f8f7fd",
   'vivid-green-cyan': "#00D084",
   'eerste': {

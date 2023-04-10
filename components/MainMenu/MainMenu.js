@@ -4,6 +4,7 @@ import WhcLogo from "../../assets/images/whc-logo.png";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { ButtonLink } from "../ButtonLink";
+import { useRouter } from 'next/router';
 
 export const MainMenu = ({ items, callToActionLabel, callToActionDestination }) => {
   // console.log("MAIN MENU: ", items);
@@ -12,6 +13,7 @@ export const MainMenu = ({ items, callToActionLabel, callToActionDestination }) 
   const [boxShadow, setBoxShadow] = useState(0);
   const [navbar, setNavbar] = useState(false);
 
+  const router = useRouter();
 
   useEffect(() => {
     let backgroundTransparancyVar = clientWindowHeight / 600; //1000/600=1.6
@@ -33,11 +35,12 @@ export const MainMenu = ({ items, callToActionLabel, callToActionDestination }) 
 
   return (
     <>
-      <nav className="w-full sticky top-0 z-20"
-           style={{
-             background: `rgba(41, 34, 56, ${true === navbar ? 1 : backgroundTransparancy})`,
-             boxShadow: `rgb(0 0 0 / ${boxShadow}) 0px 0px 20px 6px`
-           }}>
+      <nav className="w-full sticky top-0 z-20 bg-primaryColor shadow-xl"
+           // style={{
+           //   background: `rgba(41, 34, 56, ${true === navbar ? 1 : backgroundTransparancy})`,
+           //   boxShadow: `rgb(0 0 0 / ${boxShadow}) 0px 0px 20px 6px`
+           // }}
+      >
         <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
           <div>
             <div className="flex items-center justify-between py-3 md:block">
@@ -67,11 +70,14 @@ export const MainMenu = ({ items, callToActionLabel, callToActionDestination }) 
                 navbar ? "block" : "hidden"
               }`}
             >
-              <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
+              <ul className="items-center justify-center space-y-8 md:flex md:space-x-1 lg:space-x-4 md:space-y-0">
                 {(items || []).map(item => (
-                  <li key={item.id} className="text-white">
+                  <li key={item.id} className={`relative w-fit block after:block after:content-[''] after:absolute after:bottom-[-7px] after:h-[3px] after:bg-secondaryColor after:w-full ${router.asPath.replace(/\//g, '') === item.destination.replace(/\//g, '') ? "" : "after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center"}`}>
                     <Link href={item.destination}>
-                      <a onClick={() => setNavbar(!navbar)} className="font-bold uppercase">{item.label}</a>
+                      <a onClick={() => setNavbar(!navbar)}
+                         className={`text-white p-2 font-bold uppercase`}>
+                        {item.label}
+                      </a>
                     </Link>
                   </li>
                 ))}

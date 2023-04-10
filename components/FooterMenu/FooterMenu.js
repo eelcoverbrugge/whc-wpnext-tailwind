@@ -6,7 +6,7 @@ export const FooterMenu = ({ items, company, logos }) => {
   // console.log("FOOTER MENU: ", items);
   return (
     <>
-      <div className="py-4 bg-gray-50">
+      <div className="py-4 bg-quaternaryColor">
         <div className="max-w-screen-lg mx-auto">
           <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 lg:gap-8 mx-auto items-center justify-items-center`}>
             {(logos || []).map((item, index) => (
@@ -23,7 +23,7 @@ export const FooterMenu = ({ items, company, logos }) => {
           </div>
         </div>
       </div>
-      <div className="bg-slate-700 text-white py-4 px-4">
+      <div className="bg-secondaryColor text-white py-4 px-4">
         <div className="max-w-screen-lg mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             {company && (
@@ -37,10 +37,10 @@ export const FooterMenu = ({ items, company, logos }) => {
                     {company.socialMedia && company.socialMedia.map((social, index) => (
                       <div key={index}>
                         {social.name === "Facebook" && (
-                          <FaFacebook size={25} className="cursor-pointer hover:text-slate-400" />
+                          <FaFacebook size={25} className="cursor-pointer hover:text-tertiaryColor" />
                         )}
                         {social.name === "Youtube" && (
-                          <FaYoutube size={25} className="cursor-pointer hover:text-slate-400" />
+                          <FaYoutube size={25} className="cursor-pointer hover:text-tertiaryColor" />
                         )}
                       </div>
                     ))}
@@ -68,7 +68,7 @@ export const FooterMenu = ({ items, company, logos }) => {
           </div>
         </div>
       </div>
-      <div className="bg-slate-800 text-white font-bold text-xs text-center py-2">
+      <div className="bg-primaryColor text-white font-bold text-xs text-center py-2">
         <p>Copyright 2022 | Will Hawkins Collectief | Website powered by Eelco & Jeroen</p>
       </div>
     </>

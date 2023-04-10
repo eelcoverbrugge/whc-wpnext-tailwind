@@ -11,7 +11,7 @@ export const AgendaItemCard = ({
                              }) => {
   return (
     <Link href={destination}>
-      <a className="border-b-2 border-white first:border-slate-700 hover:border-b-2 hover:border-slate-700 p-5 block">
+      <a className="border-b-2 border-white first:border-secondaryColor hover:border-b-2 hover:border-secondaryColor p-5 block">
         {/*<div className="flex w-full">*/}
         {/*  {image && <Image*/}
         {/*    src={image}*/}

@@ -11,6 +11,12 @@ module.exports = {
         heading: ["Bebas Neue", "cursive"],
         body: ["Roboto", "sans-serif"],
       },
+      colors: {
+        'primaryColor': '#292238',
+        'secondaryColor': '#36374e',
+        'tertiaryColor': '#cbcdef',
+        'quaternaryColor': '#f7f8fd',
+      },
     },
   },
   plugins: [],
