@@ -1,5 +1,12 @@
-export const Input = ({...otherProps}) => {
+export const Input = ({ label, inputId, ...otherProps }) => {
   return (
-    <input {...otherProps} className="block rounded border-slate-400 border-2 p-1 hover:border-slate-500" />
+    <div>
+      {label &&
+        <label htmlFor={inputId}>
+          {label}
+        </label>
+      }
+      <input id={inputId} {...otherProps} />
+    </div>
   );
 };

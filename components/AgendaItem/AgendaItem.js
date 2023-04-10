@@ -4,13 +4,15 @@ import { Pagination } from "./Pagination";
 import { useRouter } from "next/router";
 import queryString from "query-string";
 
-export const AgendaItemSearch = ({size}) => {
+export const AgendaItem = ({size}) => {
+  const [isLoading, setIsLoading] = useState(false);
   const [agendaItems, setAgendaItems] = useState([]);
   const [totalResults, setTotalResults] = useState([]);
   const pageSize = size;
   const router = useRouter();
 
   const search = async () => {
+    setIsLoading(true);
     const {
       page,
     } = queryString.parse(window.location.search);
@@ -27,6 +29,7 @@ export const AgendaItemSearch = ({size}) => {
 
     setAgendaItems(data.agendaItems);
     setTotalResults(data.total);
+    setIsLoading(false);
   };
 
   const handlePageClick = async (pageNumber) => {
@@ -40,6 +43,9 @@ export const AgendaItemSearch = ({size}) => {
     search();
   }, []);
 
+  if (isLoading) {
+    return <svg className="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24"></svg>
+  }
 
   return (
     <div>
