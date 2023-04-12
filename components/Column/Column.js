@@ -10,10 +10,10 @@ export const Column = ({ children, width, padding, border }) => {
   } : {};
 
   const borderStyle = border ? {
-    borderTop: border.top?.width + " solid " + theme[border?.top?.color.split('|')[2]] || 0,
-    borderRight: border.right?.width + " solid " + theme[border?.right?.color.split('|')[2]] || 0,
-    borderBottom: border.bottom?.width + " solid " + theme[border?.bottom?.color.split('|')[2]] || 0,
-    borderLeft: border.left?.width + " solid " + theme[border?.left?.color.split('|')[2]] || 0,
+    borderTop: border.top?.width + " solid " + theme[border?.top?.color?.split('|')[2]] || 0,
+    borderRight: border.right?.width + " solid " + theme[border?.right?.color?.split('|')[2]] || 0,
+    borderBottom: border.bottom?.width + " solid " + theme[border?.bottom?.color?.split('|')[2]] || 0,
+    borderLeft: border.left?.width + " solid " + theme[border?.left?.color?.split('|')[2]] || 0,
     } : {};
 
   return (
