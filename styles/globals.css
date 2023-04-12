@@ -7,6 +7,6 @@
 
 @layer components {
     .btn {
-        @apply bg-secondaryColor hover:bg-primaryColor inline-block my-2 px-4 py-2 uppercase font-bold cursor-pointer font-bold text-white
+        @apply bg-charcoal hover:bg-darkPurple inline-block my-2 px-4 py-2 uppercase font-bold cursor-pointer font-bold text-white
     }
 }

@@ -1,5 +1,4 @@
 import { useForm, ValidationError } from "@formspree/react";
-import { Input } from "../Input";
 import Image from "next/image";
 import ArrowRight from "../../assets/images/witte-linkbalk-pijl-rechts.png";
 
@@ -10,53 +9,33 @@ export const Form = ({ formId }) => {
     return <p>Bedankt voor uw bericht! Indien nodig reageren wij zo snel mogelijk.</p>;
   }
   return (
-    <div className="bg-tertiaryColor p-5">
+    <div className="bg-soap p-5">
       <form onSubmit={handleSubmit} className="w-full my-5">
-        <Input
-          inputId="voornaam"
-          label="Voornaam"
-          type="text"
-          className="block w-full md:w-1/2 bg-fifth h-[60px] border-b-[1px] border-primaryColor mt-3 mb-5 p-4 focus:outline-none focus:ring-1 focus:ring-primaryColor"
-        />
-        <ValidationError
-          prefix="Voornaam"
-          field="voornaam"
-          errors={state.errors}
-        />
-
-        <Input
-          inputId="achternaam"
-          label="Achternaam"
-          type="text"
-          className="block w-full md:w-1/2 bg-fifth h-[60px] border-b-[1px] border-primaryColor mt-3 mb-5 p-4 focus:outline-none focus:ring-1 focus:ring-primaryColor"
-        />
-        <ValidationError
-          prefix="Voornaam"
-          field="voornaam"
-          errors={state.errors}
-        />
-
-        <Input
-          inputId="email"
-          label="E-mail"
+        <label htmlFor="email">
+          E-mail
+        </label>
+        <input
+          id="email"
           type="email"
-          className="block w-full md:w-1/2 bg-fifth h-[60px] border-b-[1px] border-primaryColor mt-3 mb-5 p-4 focus:outline-none focus:ring-1 focus:ring-primaryColor"
+          name="email"
+          required
+          className="block w-full md:w-1/2 bg-ghostWhite h-[60px] border-b-[1px] border-darkPurple mt-3 mb-5 p-4 focus:outline-none focus:ring-1 focus:ring-darkPurple"
         />
         <ValidationError
           prefix="Email"
           field="email"
           errors={state.errors}
         />
-
         <label htmlFor="bericht" className="w-full">Bericht</label>
         <textarea
-          id="bericht"
-          name="bericht"
-          className="w-full bg-fifth h-[260px] border-b-[1px] border-primaryColor mt-3 mb-5 p-4 focus:outline-none focus:outline-none focus:ring-1 focus:ring-primaryColor"
+          id="message"
+          name="message"
+          required
+          className="w-full bg-ghostWhite h-[260px] border-b-[1px] border-darkPurple mt-3 mb-5 p-4 focus:outline-none focus:outline-none focus:ring-1 focus:ring-darkPurple"
         />
         <ValidationError
-          prefix="Bericht"
-          field="bericht"
+          prefix="Message"
+          field="message"
           errors={state.errors}
         />
         <div>
