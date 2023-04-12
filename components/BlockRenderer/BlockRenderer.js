@@ -113,19 +113,11 @@ export const BlockRenderer = ({ blocks }) => {
         </Columns>;
       }
       case "core/column": {
-        // console.log("COLUMN: ", block);
-        // console.log("block.innerBlocks: ", block.innerBlocks);
+        // console.log("COLUMN: ", block.attributes);
         return (
           <Column key={block.id}
                   width={block.attributes.width}
-                  textColor={
-                    theme[block.attributes.textColor] ||
-                    block.attributes.style?.color?.text
-                  }
-                  backgroundColor={
-                    theme[block.attributes.backgroundColor] ||
-                    block.attributes.style?.color?.background
-                  }
+                  padding={block.attributes.style?.spacing?.padding}
           >
             <BlockRenderer blocks={block.innerBlocks} />
           </Column>
