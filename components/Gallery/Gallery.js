@@ -33,7 +33,7 @@ export const Gallery = ({ cropImages, items }) => {
 
   return (
     <>
-      <div className="my-16 flex">
+      <div className="my-8 md:my-16 flex">
         <div id="previous"
              onClick={prevSlide}
              className="text-5xl text-secondaryColor opacity-50 transition duration-250 ease-in-out hover:opacity-100 flex justify-center items-center cursor-pointer p-1 sm:p2 relative">

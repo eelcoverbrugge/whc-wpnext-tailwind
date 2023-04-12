@@ -12,7 +12,7 @@ export const Cover = ({ background }) => {
                  layout="fill"
                  objectFit="cover"
                  className="mix-blend-soft-light"
-                 priority
+                 priority={true}
           />
         )}
       </div>

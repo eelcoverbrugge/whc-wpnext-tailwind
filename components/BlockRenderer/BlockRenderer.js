@@ -146,6 +146,7 @@ export const BlockRenderer = ({ blocks }) => {
                  width={block.attributes.width}
                  alt={block.attributes.alt || ""}
                  layout={layout}
+                 priority={true}
           />
         );
       }
