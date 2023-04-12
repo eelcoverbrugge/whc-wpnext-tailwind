@@ -10,13 +10,13 @@ export const Form = ({ formId }) => {
     return <p>Bedankt voor uw bericht! Indien nodig reageren wij zo snel mogelijk.</p>;
   }
   return (
-    <div className="bg-tertiaryColor p-5">
+    <div className="bg-soap p-5">
       <form onSubmit={handleSubmit} className="w-full my-5">
         <Input
           inputId="voornaam"
           label="Voornaam"
           type="text"
-          className="block w-full md:w-1/2 bg-fifth h-[60px] border-b-[1px] border-primaryColor mt-3 mb-5 p-4 focus:outline-none focus:ring-1 focus:ring-primaryColor"
+          className="block w-full md:w-1/2 bg-ghostWhite h-[60px] border-b-[1px] border-darkPurple mt-3 mb-5 p-4 focus:outline-none focus:ring-1 focus:ring-darkPurple"
         />
         <ValidationError
           prefix="Voornaam"
@@ -28,7 +28,7 @@ export const Form = ({ formId }) => {
           inputId="achternaam"
           label="Achternaam"
           type="text"
-          className="block w-full md:w-1/2 bg-fifth h-[60px] border-b-[1px] border-primaryColor mt-3 mb-5 p-4 focus:outline-none focus:ring-1 focus:ring-primaryColor"
+          className="block w-full md:w-1/2 bg-ghostWhite h-[60px] border-b-[1px] border-darkPurple mt-3 mb-5 p-4 focus:outline-none focus:ring-1 focus:ring-darkPurple"
         />
         <ValidationError
           prefix="Voornaam"
@@ -40,7 +40,7 @@ export const Form = ({ formId }) => {
           inputId="email"
           label="E-mail"
           type="email"
-          className="block w-full md:w-1/2 bg-fifth h-[60px] border-b-[1px] border-primaryColor mt-3 mb-5 p-4 focus:outline-none focus:ring-1 focus:ring-primaryColor"
+          className="block w-full md:w-1/2 bg-ghostWhite h-[60px] border-b-[1px] border-darkPurple mt-3 mb-5 p-4 focus:outline-none focus:ring-1 focus:ring-darkPurple"
         />
         <ValidationError
           prefix="Email"
@@ -52,7 +52,7 @@ export const Form = ({ formId }) => {
         <textarea
           id="bericht"
           name="bericht"
-          className="w-full bg-fifth h-[260px] border-b-[1px] border-primaryColor mt-3 mb-5 p-4 focus:outline-none focus:outline-none focus:ring-1 focus:ring-primaryColor"
+          className="w-full bg-ghostWhite h-[260px] border-b-[1px] border-darkPurple mt-3 mb-5 p-4 focus:outline-none focus:outline-none focus:ring-1 focus:ring-darkPurple"
         />
         <ValidationError
           prefix="Bericht"
