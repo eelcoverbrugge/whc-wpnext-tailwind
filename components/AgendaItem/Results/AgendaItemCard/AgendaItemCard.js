@@ -30,10 +30,6 @@ export const AgendaItemCard = ({
           destination={destination || "/"}
           align="right"
         />
-        {/*<CallToActionButton buttonLabel="Info"*/}
-        {/*                    destination={destination}*/}
-        {/*                    align="right"*/}
-        {/*/>*/}
       </div>
     </div>
   );
