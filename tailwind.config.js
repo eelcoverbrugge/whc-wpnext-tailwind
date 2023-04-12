@@ -12,6 +12,8 @@ module.exports = {
         body: ["Roboto", "sans-serif"],
       },
       colors: {
+        'whiteText': '#ffffff',
+        'blackText': '#000000',
         'darkPurple': '#292238',
         'charcoal': '#36374e',
         'soap': '#cbcdef',

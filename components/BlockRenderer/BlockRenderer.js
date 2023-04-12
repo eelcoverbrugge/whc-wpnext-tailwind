@@ -96,7 +96,7 @@ export const BlockRenderer = ({ blocks }) => {
           blocks={block.innerBlocks} /></Cover>;
       }
       case "core/columns": {
-        // console.log("COLUMNS: ", block.attributes);
+        // console.log("COLUMNS: ", block);
         return <Columns key={block.id}
                         isStackedOnMobile={block.attributes.isStackedOnMobile}
                         textColor={
@@ -126,8 +126,6 @@ export const BlockRenderer = ({ blocks }) => {
                     theme[block.attributes.backgroundColor] ||
                     block.attributes.style?.color?.background
                   }
-                  padding={block.attributes.style?.spacing?.padding}
-                  border={block.attributes.style?.border}
           >
             <BlockRenderer blocks={block.innerBlocks} />
           </Column>
