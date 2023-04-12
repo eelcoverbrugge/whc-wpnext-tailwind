@@ -118,6 +118,7 @@ export const BlockRenderer = ({ blocks }) => {
           <Column key={block.id}
                   width={block.attributes.width}
                   padding={block.attributes.style?.spacing?.padding}
+                  border={block.attributes.style?.border}
           >
             <BlockRenderer blocks={block.innerBlocks} />
           </Column>
