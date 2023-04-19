@@ -27,7 +27,17 @@ export const AgendaItem = ({size}) => {
 
     const data = await response.json();
 
-    setAgendaItems(data.agendaItems);
+    const agendaItems = data.agendaItems.sort((a, b) =>{
+      let aa = a.agendaItems.date.split('/').reverse().join();
+      let bb = b.agendaItems.date.split('/').reverse().join();
+
+      return aa > bb ? -1 : (aa > bb ? 1 : 0);
+    });
+
+    console.log('_______')
+    agendaItems.forEach(item => console.log(item.agendaItems.date + ': ' + item.title));
+
+    setAgendaItems(agendaItems);
     setTotalResults(data.total);
     setIsLoading(false);
   };

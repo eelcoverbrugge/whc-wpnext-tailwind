@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { CallToActionButton } from "../../../CallToActionButton";
+import { format } from "date-fns";
 
 export const AgendaItemCard = ({
                                  title,
@@ -22,7 +23,7 @@ export const AgendaItemCard = ({
         </div>
         <div className="w-full md:w-2/4 px-4 flex flex-col">
           <div><h3 className="font-heading max-w-7xl lg:mx-auto text-3xl font-medium tracking-wider">{title}</h3></div>
-          <div>{date}</div>
+          <div className="font-bold underline decoration-1 underline-offset-4 pt-2 pb-4">{date}</div>
           <div>{text}</div>
         </div>
         <div className="w-full md:w-1/4 px-4">
