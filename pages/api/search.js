@@ -6,6 +6,8 @@ const handler = async (req, res) => {
     const filters = JSON.parse(req.body);
     const offset = ((filters.page || 1) - 1) * filters.size;
     const size = filters.size;
+    const date = new Date;
+    const yyyymmdd = date.toISOString().slice(0,10).replace(/-/g,"");
 
     const { data } = await client.query({
       query: gql`
@@ -16,11 +18,14 @@ const handler = async (req, res) => {
               { 
                 size: ${size}, 
                 offset: ${offset} 
-              }, 
-              orderby: 
-              {
-                field: EVENT, 
-                order: ASC
+              },
+              metaQuery: {
+                metaArray: {
+                  key: "EVENT",
+                  value: "${yyyymmdd}", 
+                  compare: GREATER_THAN, 
+                  type: DATE
+                }
               }
             }) {
             pageInfo {
