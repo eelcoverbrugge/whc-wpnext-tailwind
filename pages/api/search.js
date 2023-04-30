@@ -12,7 +12,11 @@ const handler = async (req, res) => {
         query AllAgendaItemsQuery {
           agendaItems(where: 
             {
-              offsetPagination: {size: ${size}, offset: ${offset}}, orderby: {field: DATE, order: DESC}
+              offsetPagination: 
+              { 
+                size: ${size}, 
+                offset: ${offset} 
+              }
             }) {
             pageInfo {
               offsetPagination {
