@@ -7,24 +7,26 @@ export const FooterMenu = ({ items, company, logos }) => {
   return (
     <>
       <div className="py-4 bg-azureishWhite">
-        <div className="max-w-screen-lg mx-auto">
-          <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 lg:gap-8 mx-auto items-center justify-items-center`}>
+        <div className="max-w-7xl mx-auto">
+          <div className={`flex flex-wrap justify-between mx-2 lg:mx-auto items-center`}>
             {(logos || []).map((item, index) => (
               <div key={index}>
-                <Image
-                  src={item.logo.link}
-                  alt={item.logo.altText}
-                  width={item.logo.mediaDetails.width}
-                  height={item.logo.mediaDetails.height}
-                  objectFit="cover"
-                />
+                {item.logo?.link &&
+                  <Image
+                    src={item.logo.link}
+                    alt={item.logo.altText}
+                    width={item.logo.mediaDetails.width}
+                    height={item.logo.mediaDetails.height}
+                    objectFit="cover"
+                  />
+                }
               </div>
             ))}
           </div>
         </div>
       </div>
       <div className="bg-charcoal text-white py-4 px-4">
-        <div className="max-w-screen-lg mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             {company && (
               <div>

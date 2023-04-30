@@ -8,7 +8,7 @@ export const Results = ({ agendaItems }) => {
         <AgendaItemCard key={agendaItem.databaseId}
                       title={agendaItem.title}
                       destination={agendaItem.uri}
-                      date={agendaItem.agendaItems.date}
+                      event={agendaItem.agendaItems.event}
                       text={agendaItem.agendaItems.text}
                       tickets={agendaItem.agendaItems.tickets}
                       image={agendaItem.featuredImage?.node?.sourceUrl}

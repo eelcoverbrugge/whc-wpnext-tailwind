@@ -16,6 +16,11 @@ const handler = async (req, res) => {
               { 
                 size: ${size}, 
                 offset: ${offset} 
+              }, 
+              orderby: 
+              {
+                field: EVENT, 
+                order: ASC
               }
             }) {
             pageInfo {
@@ -35,7 +40,7 @@ const handler = async (req, res) => {
               }
               agendaItems {
                 text
-                date
+                event
                 tickets
               }
             }
