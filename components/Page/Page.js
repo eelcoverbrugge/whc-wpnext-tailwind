@@ -5,7 +5,6 @@ import Head from "next/head";
 import { FooterMenu } from "../FooterMenu";
 
 export const Page = (props) => {
-  // console.log("PAGE: ", props);
   return (
     <PageWrapper
       value={{

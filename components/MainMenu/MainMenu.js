@@ -7,7 +7,6 @@ import { ButtonLink } from "../ButtonLink";
 import { useRouter } from 'next/router';
 
 export const MainMenu = ({ items, callToActionLabel, callToActionDestination }) => {
-  // console.log("MAIN MENU: ", items);
   const [clientWindowHeight, setClientWindowHeight] = useState("");
   const [backgroundTransparancy, setBackgroundTransparancy] = useState(0);
   const [boxShadow, setBoxShadow] = useState(0);

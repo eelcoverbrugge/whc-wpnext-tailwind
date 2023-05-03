@@ -58,7 +58,7 @@ const handler = async (req, res) => {
       agendaItems: data.agendaItems.nodes
     });
   } catch (error) {
-    // console.log("ERROR", error);
+    console.log("ERROR: ", error);
   }
 };
 

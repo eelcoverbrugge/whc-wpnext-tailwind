@@ -1,7 +1,6 @@
 import { AgendaItemCard } from "./AgendaItemCard";
 
 export const Results = ({ agendaItems }) => {
-  // console.log("agendaItems: ",agendaItems)
   return (
     <div className="max-w-7xl mx-auto flex flex-col divide-y-2 divide-darkPurple">
       {agendaItems.map(agendaItem => (

@@ -4,7 +4,6 @@ import { cleanAndTransformBlocks } from "./cleanAndTransformBlocks";
 import { mapMenuItems } from "./mapMenuItems";
 
 export const getPageStaticProps = async (context) => {
-  // console.log("CONTEXT: ", context);
   const uri = context.params?.slug ?
     `/${context.params.slug.join("/")}/` :
     "/";
@@ -113,7 +112,7 @@ export const getPageStaticProps = async (context) => {
   });
 
   const blocks = cleanAndTransformBlocks(data.nodeByUri.blocksJSON);
-// console.log("data.acfOptionsFooterMenu.footerMenu.menuItems: ", data.acfOptionsFooterMenu.footerMenu.logos)
+
   return {
     props: {
       seo: data.nodeByUri.seo || null,

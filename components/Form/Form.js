@@ -3,7 +3,6 @@ import Image from "next/image";
 import ArrowRight from "../../assets/images/witte-linkbalk-pijl-rechts.png";
 
 export const Form = ({ formId }) => {
-  // console.log("FORM ID: ", formId);
   const [state, handleSubmit] = useForm(formId);
   if (state.succeeded) {
     return <p>Bedankt voor uw bericht! Indien nodig reageren wij zo snel mogelijk.</p>;
