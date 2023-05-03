@@ -143,6 +143,7 @@ export const BlockRenderer = ({ blocks }) => {
         );
       }
       default: {
+        console.log("UNKNOWN: ", block);
         return null;
       }
     }

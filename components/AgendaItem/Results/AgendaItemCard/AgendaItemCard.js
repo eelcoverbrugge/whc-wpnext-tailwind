@@ -11,7 +11,7 @@ export const AgendaItemCard = ({
   return (
     <div className="py-5">
       <div className="flex flex-wrap space-y-4 md:space-y-0 text-left">
-        <div className="w-full md:w-1/4">
+        <div className={`w-full md:w-1/4`}>
           {image && <Image
             src={image}
             height="200px"
