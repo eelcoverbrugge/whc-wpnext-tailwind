@@ -20,12 +20,12 @@ export const AgendaItemCard = ({
             alt=""
           />}
         </div>
-        <div className="w-full md:w-2/4 px-4 flex flex-col">
+        <div className="w-full md:w-2/4 px-2 flex flex-col">
           <div><h3 className="font-heading max-w-7xl lg:mx-auto text-3xl font-medium tracking-wider">{title}</h3></div>
           <div>{event}</div>
           <div>{text}</div>
         </div>
-        <div className="w-full md:w-1/4 px-4">
+        <div className="w-full md:w-1/4 px-2 md:px-0">
           <CallToActionButton
             buttonLabel="Info"
             destination={destination || "/"}

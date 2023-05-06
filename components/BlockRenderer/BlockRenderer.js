@@ -41,6 +41,7 @@ export const BlockRenderer = ({ blocks }) => {
         />;
       }
       case "acf/agendaitemsfeatured": {
+        console.log("BLOCK: ", block);
         return <AgendaItem key={block.id}
                            size={3}
         />;
