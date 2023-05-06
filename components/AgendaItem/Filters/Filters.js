@@ -20,17 +20,40 @@ export const Filters = ({ onSearch }) => {
   }, []);
 
   return (
-    <div className="max-w-7xl mx-auto my-5 flex gap-2 items-center">
+    <div className="max-w-7xl mx-auto flex justify-between md:items-center py-2 border-b-2 border-darkPurple px-2 md:px-0">
+      <div className="flex flex-col sm:flex-row gap-x-4">
+        <div>Evenementen:</div>
 
-      <Input type="checkbox"
-             className="cursor-pointer"
-             checked={showArchive}
-             onChange={() => setShowArchive((value) => !value)}
-      />
+        <div>
+          <label htmlFor="aankomende" className="cursor-pointer flex">
+            <Input
+              id="aankomende"
+              type="checkbox"
+              checked={!showArchive}
+              onChange={() => setShowArchive((value) => !value)}
+            />
+            <span className="pl-2">Aankomende</span>
+          </label>
+        </div>
 
-      <button onClick={handleSearch} className={`underline hover:no-underline`}>
-        Evenementen in het verleden
-      </button>
+        <div>
+          <label htmlFor="eerdere" className="cursor-pointer flex">
+            <Input
+              id="eerdere"
+              type="checkbox"
+              checked={showArchive}
+              onChange={() => setShowArchive((value) => !value)}
+            />
+            <span className="pl-2">Eerdere</span>
+          </label>
+        </div>
+      </div>
+
+      <div className="btn my-0 flex items-center"
+           onClick={handleSearch}
+      >
+        Filter
+      </div>
     </div>
   );
 };
