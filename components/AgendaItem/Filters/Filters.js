@@ -3,40 +3,35 @@ import { useEffect, useState } from "react";
 import queryString from "query-string";
 
 export const Filters = ({ onSearch }) => {
-  const [showArchive, setShowArchive] = useState("");
+  const [showArchive, setShowArchive] = useState(false);
 
   const handleSearch = () => {
     onSearch({
-      showArchive,
+      showArchive
     });
   };
 
   useEffect(() => {
     const {
-      showArchive: showArchiveInitial,
+      showArchive: showArchiveInitial
     } = queryString.parse(window.location.search);
+    console.log("showArchive: ", showArchive);
 
     setShowArchive("true" === showArchiveInitial);
   }, []);
 
   return (
-    <div className="max-w-7xl mx-auto my-5 flex gap-5 border-solid border-darkPurple border-2 p-5 rounded-md">
+    <div className="max-w-7xl mx-auto my-5 flex gap-2 items-center">
 
-      <div>
-        <label htmlFor="" className="cursor-pointer flex">
-          <Input type="checkbox"
-                 checked={showArchive}
-                 onChange={() => setShowArchive((value) => !value)}
-          />
-          <span className="pl-2">show archive</span>
-        </label>
-      </div>
+      <Input type="checkbox"
+             className="cursor-pointer"
+             checked={showArchive}
+             onChange={() => setShowArchive((value) => !value)}
+      />
 
-      <div className="btn my-0"
-           onClick={handleSearch}
-      >
-        Search
-      </div>
+      <button onClick={handleSearch} className={`underline hover:no-underline`}>
+        Evenementen in het verleden
+      </button>
     </div>
   );
 };

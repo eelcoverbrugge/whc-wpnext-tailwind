@@ -3,14 +3,12 @@ import { Results } from "./Results";
 import { Pagination } from "./Pagination";
 import { useRouter } from "next/router";
 import queryString from "query-string";
-import { CallToActionButton } from "../CallToActionButton";
 import { Filters } from "./Filters";
 
 export const AgendaItem = ({size}) => {
   const [isLoading, setIsLoading] = useState(false);
   const [agendaItems, setAgendaItems] = useState([]);
   const [totalResults, setTotalResults] = useState([]);
-  const [showArchive, setShowArchive] = useState(false);
   const pageSize = size;
   const router = useRouter();
 
@@ -49,7 +47,6 @@ export const AgendaItem = ({size}) => {
 
   useEffect(() => {
     search();
-    console.log(showArchive)
   }, []);
 
   const handleSearch = async ({ showArchive }) => {
@@ -64,8 +61,9 @@ export const AgendaItem = ({size}) => {
   }
   return (
     <div>
-      <Filters onSearch={handleSearch} />
-      <h2 className="font-heading max-w-7xl lg:mx-auto text-3xl font-medium tracking-wider">{showArchive === true ? "Events in het verleden" : "Aankomende events"}</h2>
+      {pageSize !== 3 &&
+        <Filters onSearch={handleSearch} />
+      }
       <Results agendaItems={agendaItems} />
       {pageSize !== 3 &&
         <Pagination onPageClick={handlePageClick} totalPages={Math.ceil(totalResults / pageSize)} />
