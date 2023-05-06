@@ -2,10 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 import ArrowRight from "../../assets/images/witte-linkbalk-pijl-rechts.png";
 
-export const ButtonLink = ({ destination, label, cta }) => {
+export const ButtonLink = ({ destination, label, cta, ...otherProps }) => {
   return (
     <Link href={destination}>
-      <button className="btn">
+      <button className="btn" {...otherProps}>
         <div className="flex gap-4 justify-between items-center">
           {label}
           {cta &&

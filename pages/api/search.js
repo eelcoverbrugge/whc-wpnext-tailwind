@@ -9,24 +9,44 @@ const handler = async (req, res) => {
     const date = new Date;
     const yyyymmdd = date.toISOString().slice(0,10).replace(/-/g,"");
 
+    let showArchiveFilter = ``;
+
+    if (filters.showArchive) {
+      showArchiveFilter = `
+      metaQuery: {
+        metaArray: {
+          key: "EVENT",
+          value: "${yyyymmdd}", 
+          compare: LESS_THAN, 
+          type: DATE
+        }
+      },
+    `;
+    } else {
+      showArchiveFilter = `
+      metaQuery: {
+        metaArray: {
+          key: "EVENT",
+          value: "${yyyymmdd}", 
+          compare: GREATER_THAN, 
+          type: DATE
+        }
+      },
+    `;
+    }
+
+
     const { data } = await client.query({
       query: gql`
         query AllAgendaItemsQuery {
           agendaItems(where: 
             {
               offsetPagination: 
-              { 
+              {  
                 size: ${size}, 
                 offset: ${offset} 
               },
-              metaQuery: {
-                metaArray: {
-                  key: "EVENT",
-                  value: "${yyyymmdd}", 
-                  compare: GREATER_THAN, 
-                  type: DATE
-                }
-              }
+              ${showArchiveFilter}
             }) {
             pageInfo {
               offsetPagination {
@@ -53,12 +73,13 @@ const handler = async (req, res) => {
         }
       `
     });
+
     return res.status(200).json({
       total: data.agendaItems.pageInfo.offsetPagination.total,
       agendaItems: data.agendaItems.nodes
     });
   } catch (error) {
-    // console.log("ERROR", error);
+    console.log("ERROR: ", error);
   }
 };
 

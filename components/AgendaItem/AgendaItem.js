@@ -3,6 +3,7 @@ import { Results } from "./Results";
 import { Pagination } from "./Pagination";
 import { useRouter } from "next/router";
 import queryString from "query-string";
+import { Filters } from "./Filters";
 
 export const AgendaItem = ({size}) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -15,13 +16,18 @@ export const AgendaItem = ({size}) => {
     setIsLoading(true);
     const {
       page,
+      showArchive,
     } = queryString.parse(window.location.search);
+
+    const filters = {};
+    if ("true" === showArchive) filters.showArchive = true;
 
     const response = await fetch(`/api/search`, {
       method: "POST",
       body: JSON.stringify({
         page: parseInt(page || "1"),
         size: parseInt(pageSize || "3"),
+        ...filters
       })
     });
 
@@ -43,12 +49,21 @@ export const AgendaItem = ({size}) => {
     search();
   }, []);
 
+  const handleSearch = async ({ showArchive }) => {
+    await router.push(`${router.query.slug.join("/")}?showArchive=${!!showArchive}`, null, {
+      shallow: true
+    });
+    search();
+  };
+
   if (isLoading) {
     return <svg className="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24"></svg>
   }
-
   return (
     <div>
+      {pageSize !== 3 &&
+        <Filters onSearch={handleSearch} />
+      }
       <Results agendaItems={agendaItems} />
       {pageSize !== 3 &&
         <Pagination onPageClick={handlePageClick} totalPages={Math.ceil(totalResults / pageSize)} />

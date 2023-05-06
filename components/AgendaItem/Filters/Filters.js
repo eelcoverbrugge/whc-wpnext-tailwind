@@ -3,52 +3,56 @@ import { useEffect, useState } from "react";
 import queryString from "query-string";
 
 export const Filters = ({ onSearch }) => {
-  const [date, setDate] = useState("");
-  const [ticket, setTicket] = useState("");
+  const [showArchive, setShowArchive] = useState(false);
 
   const handleSearch = () => {
     onSearch({
-      date,
-      ticket,
+      showArchive
     });
   };
 
   useEffect(() => {
     const {
-      date: dateInit,
-      ticket: ticketInit,
+      showArchive: showArchiveInitial
     } = queryString.parse(window.location.search);
 
-    setDate("true" === dateInit);
-    setTicket(ticketInit || "");
+    setShowArchive("true" === showArchiveInitial);
   }, []);
 
   return (
-    <div className="max-w-7xl mx-auto my-5 flex gap-5 border-solid border-darkPurple border-2 p-5 rounded-md">
-      <div className="flex-1 flex">
+    <div className="max-w-7xl mx-auto flex justify-between md:items-center py-2 border-b-2 border-darkPurple px-2 md:px-0">
+      <div className="flex flex-col sm:flex-row gap-x-4">
+        <div>Evenementen:</div>
+
         <div>
-          <label htmlFor="">
-            <Input type="checkbox"
-                   checked={ticket}
-                   onChange={() => setTicket((value) => !value)}
+          <label htmlFor="aankomende" className="cursor-pointer flex">
+            <Input
+              id="aankomende"
+              type="checkbox"
+              checked={!showArchive}
+              onChange={() => setShowArchive((value) => !value)}
             />
-            <span className="pl-2">Ticket nodig</span>
+            <span className="pl-2">Aankomende</span>
+          </label>
+        </div>
+
+        <div>
+          <label htmlFor="eerdere" className="cursor-pointer flex">
+            <Input
+              id="eerdere"
+              type="checkbox"
+              checked={showArchive}
+              onChange={() => setShowArchive((value) => !value)}
+            />
+            <span className="pl-2">Eerdere</span>
           </label>
         </div>
       </div>
-      <div className="flex-1">
-        <span>Datum</span>
-        <Input type="number"
-               value={date}
-               onChange={e => setDate(e.target.value)}
-        />
-      </div>
-      <div>
-        <div className="btn"
-             onClick={handleSearch}
-        >
-          Zoek
-        </div>
+
+      <div className="btn my-0 flex items-center"
+           onClick={handleSearch}
+      >
+        Filter
       </div>
     </div>
   );
