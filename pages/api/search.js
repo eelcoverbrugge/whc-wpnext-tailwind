@@ -34,7 +34,6 @@ const handler = async (req, res) => {
       },
     `;
     }
-    console.log(showArchiveFilter)
 
 
     const { data } = await client.query({

@@ -15,7 +15,6 @@ export const Filters = ({ onSearch }) => {
     const {
       showArchive: showArchiveInitial
     } = queryString.parse(window.location.search);
-    console.log("showArchive: ", showArchive);
 
     setShowArchive("true" === showArchiveInitial);
   }, []);

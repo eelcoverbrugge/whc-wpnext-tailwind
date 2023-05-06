@@ -83,6 +83,7 @@ export const MainMenu = ({ items, callToActionLabel, callToActionDestination }) 
                 <li>
                   <ButtonLink destination={callToActionDestination}
                               label={callToActionLabel}
+                              onClick={() => setNavbar(!navbar)}
                   />
                 </li>
               </ul>
