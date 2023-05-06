@@ -5,7 +5,6 @@ import { theme } from "../../theme";
 import { CallToActionButton } from "../CallToActionButton";
 import { Columns } from "../Columns";
 import { Column } from "../Column";
-import Image from "next/image";
 import { AgendaItem } from "../AgendaItem";
 import { PostTitle } from "../PostTitle";
 import { Form } from "../Form";
@@ -14,6 +13,7 @@ import { Gallery } from "../Gallery";
 import { TickItem } from "../TickItem";
 import { Spacer } from "../Spacer";
 import { Separator } from "../Separator";
+import { Image } from "../Image";
 
 export const BlockRenderer = ({ blocks }) => {
   return blocks.map(block => {
@@ -125,6 +125,7 @@ export const BlockRenderer = ({ blocks }) => {
                  alt={block.attributes.alt || ""}
                  layout={layout}
                  priority={true}
+                 link={block.attributes.href}
           />
         );
       }
