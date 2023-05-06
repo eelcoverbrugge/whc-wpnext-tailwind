@@ -1,3 +1,4 @@
+import { FaFileDownload } from "react-icons/fa";
 import { Cover } from "../Cover";
 import { Heading } from "../Heading";
 import { Paragraph } from "../Paragraph";
@@ -141,6 +142,19 @@ export const BlockRenderer = ({ blocks }) => {
           <Separator key={block.id}
                      backgroundColor={block.attributes.backgroundColor}
           />
+        );
+      }
+      case "core/file": {
+        return (
+          <div className="max-w-7xl mx-auto flex gap-2">
+            <FaFileDownload/>
+            <a key={block.id}
+               href={block.attributes.href || ""}
+               target="_blank"
+               rel="noopener noreferrer">
+              <button>{block.attributes.fileName}</button>
+            </a>
+          </div>
         );
       }
       default: {
