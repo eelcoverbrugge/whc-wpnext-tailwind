@@ -39,7 +39,9 @@ export const AgendaItem = ({size}) => {
   };
 
   const handlePageClick = async (pageNumber) => {
-    await router.push(`${router.query.slug.join("/")}?page=${pageNumber}`, null, {
+    const { showArchive } = queryString.parse(window.location.search);
+
+    await router.push(`${router.query.slug.join("/")}?page=${pageNumber}&showArchive=${"true" === showArchive}`, null, {
       shallow: true
     });
     search();
@@ -50,7 +52,7 @@ export const AgendaItem = ({size}) => {
   }, []);
 
   const handleSearch = async ({ showArchive }) => {
-    await router.push(`${router.query.slug.join("/")}?showArchive=${!!showArchive}`, null, {
+    await router.push(`${router.query.slug.join("/")}?page=1&showArchive=${!!showArchive}`, null, {
       shallow: true
     });
     search();
