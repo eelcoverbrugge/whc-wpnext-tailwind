@@ -20,8 +20,8 @@ export const Filters = ({ onSearch }) => {
   }, []);
 
   return (
-    <div className="max-w-7xl mx-auto flex justify-between md:items-center py-2 border-b-2 border-darkPurple px-2 md:px-0">
-      <div className="flex flex-col sm:flex-row gap-x-4">
+    <div className="max-w-7xl mx-auto flex gap-4 md:items-center py-2 border-b-2 border-darkPurple px-2 md:px-0">
+      <div className="flex flex-col sm:flex-row gap-x-4 font-heading text-1l font-medium tracking-wider">
         <div>Evenementen:</div>
 
         <div>
@@ -49,10 +49,10 @@ export const Filters = ({ onSearch }) => {
         </div>
       </div>
 
-      <div className="btn my-0 flex items-center"
+      <div className="font-heading text-2xl font-medium tracking-wider underline hover:no-underline cursor-pointer flex items-center"
            onClick={handleSearch}
       >
-        Filter
+        Zoeken
       </div>
     </div>
   );
