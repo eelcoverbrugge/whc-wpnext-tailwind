@@ -3,7 +3,6 @@ import { FaFacebook, FaYoutube } from "react-icons/fa";
 import Image from "next/image";
 
 export const FooterMenu = ({ items, company, logos }) => {
-  console.log("company: ", company);
   return (
     <>
       <div className="py-4 bg-azureishWhite">
