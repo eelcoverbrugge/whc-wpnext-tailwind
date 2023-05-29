@@ -24,7 +24,7 @@ export const Columns = ({
   return (
     <div ref={target} style={{ ...textColorStyle }} className="relative">
       {!!backgroundColor ? (
-        <div ref={backgroundOne.ref} style={{ backgroundColor: backgroundColor }} className={`h-[900px] w-3/4 absolute -top-[100px] lef-0 -z-10`}/>
+        <div ref={backgroundOne.ref} style={{ backgroundColor: backgroundColor }} className={`h-[1400px] md:h-[900px] w-full md:w-3/4 absolute -top-[100px] lef-0 -z-10`}/>
       ) : (
         <div ref={backgroundOne.ref} />
       )}
@@ -32,7 +32,7 @@ export const Columns = ({
         {children}
       </div>
       {!!backgroundColor ? (
-        <div ref={backgroundTwo.ref} style={{ backgroundColor: backgroundColor + '75' }} className={`h-[800px] w-3/4 absolute top-[300px] right-0 -z-20`}/>
+        <div ref={backgroundTwo.ref} style={{ backgroundColor: backgroundColor + '75' }} className={`h-[800px] w-full md:w-3/4 absolute top-[300px] right-0 -z-20`}/>
       ) : (
         <div ref={backgroundTwo.ref} />
       )}
