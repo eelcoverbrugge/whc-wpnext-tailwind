@@ -37,11 +37,19 @@ export const FooterMenu = ({ items, company, logos }) => {
                   <div className="flex gap-2 py-2">
                     {company.socialMedia && company.socialMedia.map((social, index) => (
                       <div key={index}>
-                        {social.name === "Facebook" && (
-                          <FaFacebook size={25} className="cursor-pointer hover:text-soap" />
+                        {!!social.url && social.name === "Facebook" && (
+                          <Link href={social.url} passHref>
+                              <a target="_blank" rel="noopener noreferrer">
+                                <FaFacebook size={25} className="cursor-pointer hover:text-soap" />
+                              </a>
+                          </Link>
                         )}
-                        {social.name === "Youtube" && (
-                          <FaYoutube size={25} className="cursor-pointer hover:text-soap" />
+                        {!!social.url && social.name === "Youtube" && (
+                          <Link href={social.url} passHref>
+                              <a target="_blank" rel="noopener noreferrer">
+                                <FaYoutube size={25} className="cursor-pointer hover:text-soap" />
+                              </a>
+                          </Link>
                         )}
                       </div>
                     ))}

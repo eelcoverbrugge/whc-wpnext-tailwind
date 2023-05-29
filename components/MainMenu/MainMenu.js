@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { ButtonLink } from "../ButtonLink";
 import { useRouter } from 'next/router';
+import { Transition } from '@headlessui/react'
 
 export const MainMenu = ({ items, callToActionLabel, callToActionDestination }) => {
   const [clientWindowHeight, setClientWindowHeight] = useState("");
@@ -69,24 +70,44 @@ export const MainMenu = ({ items, callToActionLabel, callToActionDestination }) 
                 navbar ? "block" : "hidden"
               }`}
             >
+
+              <Transition appear={true} show={true}>
               <ul className="items-center justify-center space-y-8 md:flex md:space-x-1 lg:space-x-4 md:space-y-0">
-                {(items || []).map(item => (
-                  <li key={item.id} className={`relative w-fit block after:block after:content-[''] after:absolute after:bottom-[-7px] after:h-[3px] after:bg-soap after:w-full ${router.asPath.replace(/\//g, '') === item.destination.replace(/\//g, '') ? "" : "after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center"}`}>
-                    <Link href={item.destination}>
-                      <a onClick={() => setNavbar(!navbar)}
-                         className={`text-white p-2 font-bold uppercase`}>
-                        {item.label}
-                      </a>
-                    </Link>
-                  </li>
+                {(items || []).map((item, index) => (
+
+                    <Transition.Child
+                      key={index}
+                      enter={`transition ease-in-out delay-${index * 100} duration-${index * 100} transform`}
+                      enterFrom="opacity-0 translate-y-full"
+                      enterTo="opacity-100 translate-y-0"
+                    >
+
+                      <li className={`relative w-fit block after:block after:content-[''] after:absolute after:bottom-[-7px] after:h-[3px] after:bg-soap after:w-full ${router.asPath.replace(/\//g, '') === item.destination.replace(/\//g, '') ? "" : "after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center"}`}>
+
+                        <Link href={item.destination}>
+
+                          <a onClick={() => setNavbar(!navbar)}
+                             className={`text-white p-2 font-bold uppercase`}>
+                            {item.label}
+
+                          </a>
+
+                        </Link>
+                      </li>
+
+                    </Transition.Child>
+
                 ))}
                 <li>
-                  <ButtonLink destination={callToActionDestination}
-                              label={callToActionLabel}
-                              onClick={() => setNavbar(!navbar)}
+                  <ButtonLink
+                    destination={callToActionDestination}
+                    label={callToActionLabel}
+                    onClick={() => setNavbar(!navbar)}
                   />
                 </li>
               </ul>
+
+              </Transition>
             </div>
           </div>
         </div>

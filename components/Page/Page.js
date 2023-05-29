@@ -3,6 +3,7 @@ import { BlockRenderer } from "../BlockRenderer";
 import { PageWrapper } from "context/page";
 import Head from "next/head";
 import { FooterMenu } from "../FooterMenu";
+import { Favicon } from '../Favicon';
 
 export const Page = (props) => {
   return (
@@ -16,6 +17,7 @@ export const Page = (props) => {
       <Head>
         <title>{props.seo?.title}</title>
         <meta name="description" content={props.seo?.metaDesc} />
+        <Favicon />
       </Head>
       <MainMenu items={props.mainMenuItems}
                 callToActionLabel={props.callToActionLabel}
