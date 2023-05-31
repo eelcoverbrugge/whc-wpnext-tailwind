@@ -1,6 +1,6 @@
-import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
+import Image from "next/image";
 
-export const Gallery = ({ cropImages, items }) => {
+export const Gallery = ({ columns, cropImages, items }) => {
   let maxHeigth = 0;
   let maxWidth = 0;
 
@@ -12,47 +12,25 @@ export const Gallery = ({ cropImages, items }) => {
       if (item.attributes.width > maxWidth) {
         maxWidth = item.attributes.maxWidth;
       }
-    });
+    })
   }
 
-  // const columnWidth = 100 / columns;
-
-  const prevSlide = () => {
-    const carousel = document.getElementById('carousel');
-    if (carousel) {
-      carousel.scrollLeft = carousel.scrollLeft - items[0].attributes.width;
-    }
-  };
-
-  const nextSlide = () => {
-    const carousel = document.getElementById('carousel');
-    if (carousel) {
-      carousel.scrollLeft = carousel.scrollLeft + items[0].attributes.width;
-    }
-  };
+  const columnWidth = 100 / columns;
 
   return (
-    <>
-      <div className="my-8 md:my-16 flex">
-        <div id="previous"
-             onClick={prevSlide}
-             className="text-5xl text-charcoal opacity-50 transition duration-250 ease-in-out hover:opacity-100 flex justify-center items-center cursor-pointer p-1 sm:p2 relative">
-          <FaAngleLeft className="w-[20px] md:w-[30px]" />
+    <div className="flex flex-wrap max-w-5xl mx-auto">
+      {items.map(item => (
+        <div key={item.id} style={{ width: `${columnWidth}%` }} className="p-5 flex-grow">
+          <Image src={item.attributes.url}
+                 height={maxHeigth || item.attributes.height}
+                 width={maxWidth || item.attributes.width}
+                 alt={item.attributes.alt}
+                 objectFit="cover"
+          >
+
+          </Image>
         </div>
-        <div id="carousel" className="flex w-full flex-1 scroll-smooth gap-4 snap-x overflow-x-auto overflow-x-hidden">
-          {items.map(item => (
-            <div key={item.id} className={`min-w-[80%] md:min-w-[40%]`}>
-              <div className="h-[400px] md:h-[600px] w-full snap-center bg-cover bg-center"
-                   style={{ backgroundImage: `url(${item.attributes.url})` }}/>
-            </div>
-          ))}
-        </div>
-        <div id="next"
-             onClick={nextSlide}
-             className="text-5xl text-charcoal opacity-50 transition duration-250 ease-in-out hover:opacity-100 flex justify-center items-center cursor-pointer p-1 sm:p2 relative">
-          <FaAngleRight className="w-[20px] md:w-[30px]" />
-        </div>
-      </div>
-    </>
+      ))}
+    </div>
   );
 };

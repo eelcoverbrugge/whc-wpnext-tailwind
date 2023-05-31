@@ -36,10 +36,10 @@ export const MainMenu = ({ items, callToActionLabel, callToActionDestination }) 
   return (
     <>
       <nav className="w-full sticky top-0 z-20 bg-darkPurple shadow-xl"
-           // style={{
-           //   background: `rgba(41, 34, 56, ${true === navbar ? 1 : backgroundTransparancy})`,
-           //   boxShadow: `rgb(0 0 0 / ${boxShadow}) 0px 0px 20px 6px`
-           // }}
+           style={{
+             background: `rgba(41, 34, 56, ${true === navbar ? 1 : backgroundTransparancy})`,
+             boxShadow: `rgb(0 0 0 / ${boxShadow}) 0px 0px 20px 6px`
+           }}
       >
         <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
           <div>
