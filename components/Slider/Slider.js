@@ -37,7 +37,7 @@ export const Slider = ({ images, height }) => {
         <div id="carousel" className="flex w-full flex-1 scroll-smooth gap-4 snap-x no-scrollbar overflow-x-auto ">
           {imagesArray.map(image => (
             <div key={image.id} className={`min-w-[80%] md:min-w-[40%]`}>
-              <div className={`h-[${height / 1.5}px] md:h-[${height}px] w-full snap-center bg-cover bg-center`}
+              <div className={`h-[400px] md:h-[600px] w-full snap-center bg-cover bg-center`}
                    style={{ backgroundImage: `url(${image.url})` }}/>
             </div>
           ))}
