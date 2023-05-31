@@ -77,7 +77,7 @@ export const MainMenu = ({ items, callToActionLabel, callToActionDestination }) 
 
                     <Transition.Child
                       key={index}
-                      enter={`transition ease-in-out delay-${index * 100} duration-${index * 100} transform`}
+                      enter="transition ease-in-out delay-100 duration-100 transform"
                       enterFrom="opacity-0 translate-y-full"
                       enterTo="opacity-100 translate-y-0"
                     >
