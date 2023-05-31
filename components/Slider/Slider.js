@@ -10,8 +10,6 @@ export const Slider = ({ images, height }) => {
     }
   }
 
-  console.log(height)
-
   const prevSlide = () => {
     const carousel = document.getElementById('carousel');
 
