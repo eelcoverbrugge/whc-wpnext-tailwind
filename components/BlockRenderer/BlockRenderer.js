@@ -6,6 +6,7 @@ import { theme } from "../../theme";
 import { CallToActionButton } from "../CallToActionButton";
 import { Columns } from "../Columns";
 import { Column } from "../Column";
+import { Slider } from "../Slider";
 import { AgendaItem } from "../AgendaItem";
 import { PostTitle } from "../PostTitle";
 import { Form } from "../Form";
@@ -21,6 +22,12 @@ export const BlockRenderer = ({ blocks }) => {
     switch (block.name) {
       case "acf/propertyfeatures": {
         return <PropertyFeatures key={block.id}
+        />;
+      }
+      case "acf/slider": {
+        return <Slider key={block.id}
+                       images={block.attributes.data}
+                       height={block.attributes.data.height}
         />;
       }
       case "acf/tickitem": {
@@ -77,7 +84,7 @@ export const BlockRenderer = ({ blocks }) => {
       case "core/gallery": {
         return <Gallery key={block.id}
                         columns={block.attributes.columns || 3}
-                        cropImaes={block.attributes.imageCrop}
+                        cropImages={block.attributes.imageCrop}
                         items={block.innerBlocks}
         />;
       }
