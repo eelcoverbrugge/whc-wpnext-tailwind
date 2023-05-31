@@ -1,13 +1,13 @@
 import Image from "next/image";
 
 export const Gallery = ({ columns, cropImages, items }) => {
-  let maxHeigth = 0;
+  let maxHeight = 0;
   let maxWidth = 0;
 
   if (cropImages) {
     items.forEach(item => {
       if (item.attributes.height > maxHeight) {
-        maxHeigth = item.attributes.height;
+        maxHeight = item.attributes.height;
       }
       if (item.attributes.width > maxWidth) {
         maxWidth = item.attributes.maxWidth;
@@ -22,7 +22,7 @@ export const Gallery = ({ columns, cropImages, items }) => {
       {items.map(item => (
         <div key={item.id} style={{ width: `${columnWidth}%` }} className="p-5 flex-grow">
           <Image src={item.attributes.url}
-                 height={maxHeigth || item.attributes.height}
+                 height={maxHeight || item.attributes.height}
                  width={maxWidth || item.attributes.width}
                  alt={item.attributes.alt}
                  objectFit="cover"
