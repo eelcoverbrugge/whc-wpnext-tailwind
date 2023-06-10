@@ -7,8 +7,8 @@ const handler = async (req, res) => {
     const offset = ((filters.page || 1) - 1) * filters.size;
     const size = filters.size;
     const date = new Date;
-    const tomorrow = date.getDate() + 1;
-    const yyyymmdd = tomorrow.toISOString().slice(0,10).replace(/-/g,"");
+    date.setDate(date.getDate() - 1);
+    const yyyymmdd = date.toISOString().slice(0,10).replace(/-/g,"");
 
     let showArchiveFilter = ``;
 
