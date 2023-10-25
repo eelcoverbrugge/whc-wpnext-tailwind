@@ -26,7 +26,6 @@ export const BlockRenderer = ({ blocks }) => {
         />;
       }
       case "acf/media-player": {
-        console.log("MediaPlayer: ", block);
         return <MediaPlayer key={block.id} />;
       }
       case "acf/slider": {
