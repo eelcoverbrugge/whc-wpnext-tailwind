@@ -16,7 +16,6 @@ import { TickItem } from "../TickItem";
 import { Spacer } from "../Spacer";
 import { Separator } from "../Separator";
 import { Image } from "../Image";
-import { MediaPlayer } from "../MediaPlayer";
 
 export const BlockRenderer = ({ blocks }) => {
   return blocks.map(block => {
@@ -24,10 +23,6 @@ export const BlockRenderer = ({ blocks }) => {
       case "acf/propertyfeatures": {
         return <PropertyFeatures key={block.id}
         />;
-      }
-      case "acf/media-player": {
-        console.log("MediaPlayer: ", block);
-        return <MediaPlayer key={block.id} />;
       }
       case "acf/slider": {
         return <Slider key={block.id}

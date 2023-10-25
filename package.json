@@ -22,9 +22,8 @@
         "numeral": "^2.0.6",
         "query-string": "^7.1.1",
         "react": "18.2.0",
-        "react-audio-player": "^0.17.0",
         "react-dom": "18.2.0",
-        "react-icons": "^4.11.0",
+        "react-icons": "^4.4.0",
         "react-scroll-parallax": "^3.4.2",
         "uuid": "^8.3.2"
     },
@@ -32,7 +31,6 @@
         "autoprefixer": "^10.4.7",
         "eslint": "8.18.0",
         "eslint-config-next": "^13.3.0",
-        "file-loader": "^6.2.0",
         "postcss": "^8.4.14",
         "tailwindcss": "^3.1.6"
     }
