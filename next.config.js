@@ -13,7 +13,7 @@ const nextConfig = {
   },
   webpack: (config, options) => {
     config.module.rules.push({
-      test: /\.mp3$/,
+      test: /\.wav$/,
       use: {
         loader: 'file-loader',
         options: {

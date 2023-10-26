@@ -5,10 +5,12 @@ import ProgressBar from "./ProgressBar";
 import { tracks } from "./tracks";
 
 export const MediaPlayer = () => {
+  const [trackIndex, setTrackIndex] = React.useState(0);
+  const [currentTrack, setCurrentTrack] = React.useState(
+    tracks[trackIndex]
+  );
   const [timeProgress, setTimeProgress] = React.useState(0);
   const [duration, setDuration] = React.useState(0);
-  const [trackIndex, setTrackIndex] = React.useState(0);
-  const [currentTrack, setCurrentTrack] = React.useState(tracks[trackIndex]);
 
   const audioRef = React.useRef();
   const progressBarRef = React.useRef();
@@ -27,28 +29,29 @@ export const MediaPlayer = () => {
     <div className="audio-player">
       <div className="inner">
         <DisplayTrack
-          currentTrack={currentTrack}
-          audioRef={audioRef}
-          setDuration={setDuration}
-          progressBarRef={progressBarRef}
-          handleNex={handleNext}
+          {...{
+            currentTrack,
+            audioRef,
+            setDuration,
+            progressBarRef,
+            handleNext,
+          }}
         />
         <Controls
-          audioRef={audioRef}
-          progressBarRef={progressBarRef}
-          duration={duration}
-          setTimeProgress={setTimeProgress}
-          tracks={tracks}
-          trackIndex={trackIndex}
-          setTrackIndex={setTrackIndex}
-          setCurrentTrack={setCurrentTrack}
-          onHandleNex={handleNext}
+          {...{
+            audioRef,
+            progressBarRef,
+            duration,
+            setTimeProgress,
+            tracks,
+            trackIndex,
+            setTrackIndex,
+            setCurrentTrack,
+            handleNext,
+          }}
         />
         <ProgressBar
-          progressBarRef={progressBarRef}
-          audioRef={audioRef}
-          timeProgress={timeProgress}
-          duration={duration}
+          {...{ progressBarRef, audioRef, timeProgress, duration }}
         />
       </div>
     </div>

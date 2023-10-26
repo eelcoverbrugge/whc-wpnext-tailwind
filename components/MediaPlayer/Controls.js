@@ -1,6 +1,5 @@
 import React from 'react';
 
-// icons
 import {
   IoPlayBackSharp,
   IoPlayForwardSharp,
@@ -9,12 +8,31 @@ import {
   IoPlaySharp,
   IoPauseSharp,
 } from 'react-icons/io5';
-import { IoMdVolumeHigh, IoMdVolumeLow, IoMdVolumeOff } from "react-icons/io";
 
-const Controls = ({ audioRef, progressBarRef, duration, setTimeProgress, tracks, trackIndex, setTrackIndex, setCurrentTrack, onHandleNex }) => {
+import {
+  IoMdVolumeHigh,
+  IoMdVolumeOff,
+  IoMdVolumeLow,
+} from 'react-icons/io';
+
+const Controls = ({
+  audioRef,
+  progressBarRef,
+  duration,
+  setTimeProgress,
+  tracks,
+  trackIndex,
+  setTrackIndex,
+  setCurrentTrack,
+  handleNext,
+}) => {
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [volume, setVolume] = React.useState(60);
   const [muteVolume, setMuteVolume] = React.useState(false);
+
+  const togglePlayPause = () => {
+    setIsPlaying((prev) => !prev);
+  };
 
   const playAnimationRef = React.useRef();
 
@@ -29,10 +47,6 @@ const Controls = ({ audioRef, progressBarRef, duration, setTimeProgress, tracks,
 
     playAnimationRef.current = requestAnimationFrame(repeat);
   }, [audioRef, duration, progressBarRef, setTimeProgress]);
-
-  const togglePlayPause = () => {
-    setIsPlaying((prev) => !prev);
-  }
 
   React.useEffect(() => {
     if (isPlaying) {
@@ -69,6 +83,13 @@ const Controls = ({ audioRef, progressBarRef, duration, setTimeProgress, tracks,
     }
   }, [volume, audioRef, muteVolume]);
 
+  React.useEffect(() => {
+    if (audioRef) {
+      audioRef.current.volume = volume / 100;
+      audioRef.current.muted = muteVolume;
+    }
+  }, [volume, audioRef, muteVolume]);
+
   return (
     <div className="controls-wrapper">
       <div className="controls">
@@ -85,7 +106,7 @@ const Controls = ({ audioRef, progressBarRef, duration, setTimeProgress, tracks,
         <button onClick={skipForward}>
           <IoPlayForwardSharp />
         </button>
-        <button onClick={onHandleNex}>
+        <button onClick={handleNext}>
           <IoPlaySkipForwardSharp />
         </button>
       </div>
