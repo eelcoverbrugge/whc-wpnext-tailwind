@@ -1,6 +1,5 @@
 import { BsMusicNoteBeamed } from 'react-icons/bs';
 import Image from "next/image";
-import ArrowRight from "../../assets/images/witte-linkbalk-pijl-rechts.png";
 
 const DisplayTrack = ({ currentTrack, audioRef, setDuration, progressBarRef, handleNext }) => {
   const onLoadedMetadata = () => {

@@ -11,7 +11,7 @@ import {
 } from 'react-icons/io5';
 import { IoMdVolumeHigh, IoMdVolumeLow, IoMdVolumeOff } from "react-icons/io";
 
-const Controls = ({ audioRef, progressBarRef, duration, setTimeProgress, tracks, trackIndex, setTrackIndex, setCurrentTrack, handleNext }) => {
+const Controls = ({ audioRef, progressBarRef, duration, setTimeProgress, tracks, trackIndex, setTrackIndex, setCurrentTrack, onHandleNex }) => {
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [volume, setVolume] = React.useState(60);
   const [muteVolume, setMuteVolume] = React.useState(false);
@@ -85,7 +85,7 @@ const Controls = ({ audioRef, progressBarRef, duration, setTimeProgress, tracks,
         <button onClick={skipForward}>
           <IoPlayForwardSharp />
         </button>
-        <button onClick={handleNext}>
+        <button onClick={onHandleNex}>
           <IoPlaySkipForwardSharp />
         </button>
       </div>

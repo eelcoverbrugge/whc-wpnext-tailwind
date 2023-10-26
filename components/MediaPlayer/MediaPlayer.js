@@ -42,7 +42,7 @@ export const MediaPlayer = () => {
           trackIndex={trackIndex}
           setTrackIndex={setTrackIndex}
           setCurrentTrack={setCurrentTrack}
-          handleNex={handleNext}
+          onHandleNex={handleNext}
         />
         <ProgressBar
           progressBarRef={progressBarRef}
