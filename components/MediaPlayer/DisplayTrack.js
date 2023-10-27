@@ -24,7 +24,7 @@ const DisplayTrack = ({
         onEnded={handleNext}
       />
       <div className="flex gap-4">
-        <div className="w-[150px] h-[150px] bg-darkPurple">
+        <div className="w-[75px] h-[75px] md:w-[150px] h-[150px] bg-darkPurple">
           {currentTrack.thumbnail ? (
             <Image
               src={currentTrack.thumbnail}
@@ -34,14 +34,14 @@ const DisplayTrack = ({
             />
           ) : (
             <div className="flex items-center justify-center h-full">
-              <span className="flex justify-center items-center h-[80px] w-[80px] rounded-full text-4xl bg-gray-200">
+              <span className="flex justify-center items-center h-[40px] w-[40px] rounded-full text-2xl bg-gray-200">
                 <BsMusicNoteBeamed />
               </span>
             </div>
           )}
         </div>
-        <div className="text-black text-lg font-bold">
-          <p className="text-white text-3xl font-bold m-0 p-1 bg-darkPurple">{currentTrack.title}</p>
+        <div className="text-black text-sm md:text-lg font-bold">
+          <p className="text-white text-base md:text-3xl font-bold m-0 p-1 bg-darkPurple">{currentTrack.title}</p>
           <p>{currentTrack.author}</p>
         </div>
       </div>

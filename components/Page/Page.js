@@ -26,7 +26,7 @@ export const Page = (props) => {
                   callToActionDestination={props.callToActionDestination}
         />
         <BlockRenderer blocks={props.blocks} />
-        <MediaPlayer className={"fixed bottom-0 right-0 z-10"} />
+        <MediaPlayer />
         <FooterMenu items={props.footerMenuItems}
                     company={props.footerCompany}
                     logos={props.footerLogos}

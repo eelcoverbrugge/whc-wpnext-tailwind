@@ -5,7 +5,7 @@ import ProgressBar from "./ProgressBar";
 import { tracks } from "./tracks";
 import { IoChevronDownOutline, IoChevronUpOutline } from "react-icons/io5";
 
-export const MediaPlayer = ({ className }) => {
+export const MediaPlayer = () => {
   const [trackIndex, setTrackIndex] = useState(0);
   const [currentTrack, setCurrentTrack] = useState(tracks[trackIndex]);
   const [timeProgress, setTimeProgress] = useState(0);
@@ -35,13 +35,8 @@ export const MediaPlayer = ({ className }) => {
   };
 
   return (
-    <div className={`${className} bg-azureishWhite`}>
-      <div className="w-[600px] p-5">
-        <div className="w-full flex justify-end gap-2">
-          <button onClick={toggleMinimalize}>
-            {minimalize ? <IoChevronUpOutline /> : <IoChevronDownOutline />}
-          </button>
-        </div>
+    <div className={"fixed bottom-0 right-0 z-10 bg-azureishWhite"}>
+      <div className="w-full md:w-[600px] p-3">
         <DisplayTrack
           currentTrack={currentTrack}
           audioRef={audioRef}
@@ -50,24 +45,29 @@ export const MediaPlayer = ({ className }) => {
           handleNext={handleNext}
           minimalize={minimalize}
         />
-        <Controls
-          audioRef={audioRef}
-          progressBarRef={progressBarRef}
-          duration={duration}
-          setTimeProgress={setTimeProgress}
-          tracks={tracks}
-          trackIndex={trackIndex}
-          setTrackIndex={setTrackIndex}
-          setCurrentTrack={setCurrentTrack}
-          handleNext={handleNext}
-          minimalize={minimalize}
-        />
-        <ProgressBar
-          progressBarRef={progressBarRef}
-          audioRef={audioRef}
-          timeProgress={timeProgress}
-          duration={duration}
-        />
+        <div className="w-full flex justify-start gap-2">
+          <Controls
+            audioRef={audioRef}
+            progressBarRef={progressBarRef}
+            duration={duration}
+            setTimeProgress={setTimeProgress}
+            tracks={tracks}
+            trackIndex={trackIndex}
+            setTrackIndex={setTrackIndex}
+            setCurrentTrack={setCurrentTrack}
+            handleNext={handleNext}
+            minimalize={minimalize}
+          />
+          <ProgressBar
+            progressBarRef={progressBarRef}
+            audioRef={audioRef}
+            timeProgress={timeProgress}
+            duration={duration}
+          />
+        </div>
+        <button className={"absolute top-2 right-0 p-3"} onClick={toggleMinimalize}>
+          {minimalize ? <IoChevronUpOutline /> : <IoChevronDownOutline />}
+        </button>
       </div>
     </div>
   );

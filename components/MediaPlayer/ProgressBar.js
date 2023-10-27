@@ -23,7 +23,7 @@ const ProgressBar = ({
   };
 
   return (
-    <div className="flex items-center gap-2 w-full mt-2">
+    <div className="flex items-center gap-2 w-full mt-2 mr-8">
       <span className="text-slate-900">{formatTime(timeProgress)}</span>
       <input
         type="range"
