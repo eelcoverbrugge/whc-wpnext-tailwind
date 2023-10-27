@@ -11,7 +11,6 @@ export const MediaPlayer = () => {
   const [timeProgress, setTimeProgress] = useState(0);
   const [duration, setDuration] = useState(0);
   const [minimalize, setMinimalize] = useState(false);
-  const [randomized, setRandomized] = useState(false);
 
   const audioRef = useRef();
   const progressBarRef = useRef();

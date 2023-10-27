@@ -9,12 +9,6 @@ import {
   IoPauseCircle,
 } from 'react-icons/io5';
 
-import {
-  IoMdVolumeHigh,
-  IoMdVolumeOff,
-  IoMdVolumeLow,
-} from 'react-icons/io';
-
 const Controls = ({
   audioRef,
   progressBarRef,
@@ -25,11 +19,8 @@ const Controls = ({
   setTrackIndex,
   setCurrentTrack,
   handleNext,
-  displayNone,
 }) => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [volume, setVolume] = useState(60);
-  const [muteVolume, setMuteVolume] = useState(false);
 
   const togglePlayPause = () => {
     setIsPlaying((prev) => !prev);
@@ -79,13 +70,6 @@ const Controls = ({
     }
   };
 
-  useEffect(() => {
-    if (audioRef) {
-      audioRef.current.volume = volume / 100;
-      audioRef.current.muted = muteVolume;
-    }
-  }, [volume, audioRef, muteVolume]);
-
   return (
     <div className="flex w-[100px] md:w-[200px] items-center my-2 justify-center">
       <div className="flex gap-1 md:gap-2">
@@ -106,27 +90,6 @@ const Controls = ({
           <IoPlaySkipForwardCircle />
         </button>
       </div>
-      {/*<div className="flex items-center w-[100px]">*/}
-      {/*  <button onClick={() => setMuteVolume(!muteVolume)}>*/}
-      {/*    {muteVolume || volume < 5 ? (*/}
-      {/*      <IoMdVolumeOff />*/}
-      {/*    ) : volume < 40 ? (*/}
-      {/*      <IoMdVolumeLow />*/}
-      {/*    ) : (*/}
-      {/*      <IoMdVolumeHigh />*/}
-      {/*    )}*/}
-      {/*  </button>*/}
-      {/*  <input*/}
-      {/*    type="range"*/}
-      {/*    min={0}*/}
-      {/*    max={100}*/}
-      {/*    value={volume}*/}
-      {/*    onChange={(e) => setVolume(e.target.value)}*/}
-      {/*    style={{*/}
-      {/*      background: `linear-gradient(to right, #f50 ${volume}%, #ccc ${volume}%)`,*/}
-      {/*    }}*/}
-      {/*  />*/}
-      {/*</div>*/}
     </div>
   );
 };
