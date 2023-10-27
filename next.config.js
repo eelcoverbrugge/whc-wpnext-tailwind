@@ -9,6 +9,18 @@ const nextConfig = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.wav$/,
+      use: {
+        loader: 'file-loader',
+        options: {
+          name: 'static/media/[name].[hash].[ext]',
+        },
+      },
+    });
+    return config;
+  },
 };
 
 module.exports = nextConfig;
