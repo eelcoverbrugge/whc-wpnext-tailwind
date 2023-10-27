@@ -22,8 +22,8 @@ const DisplayTrack = ({
         onLoadedMetadata={onLoadedMetadata}
         onEnded={handleNext}
       />
-      <div className="audio-info">
-        <div className="audio-image">
+      <div className="flex gap-4">
+        <div className="w-[300px] h-[300px] bg-darkPurple">
           {currentTrack.thumbnail ? (
             <Image
               src={currentTrack.thumbnail}
@@ -32,15 +32,15 @@ const DisplayTrack = ({
               height="261"
             />
           ) : (
-            <div className="icon-wrapper">
-              <span className="audio-icon">
+            <div className="flex items-center justify-center h-full">
+              <span className="flex justify-center items-center h-[80px] w-[80px] rounded-full text-4xl bg-gray-200">
                 <BsMusicNoteBeamed />
               </span>
             </div>
           )}
         </div>
-        <div className="text">
-          <p className="title">{currentTrack.title}</p>
+        <div className="text-black text-lg font-bold">
+          <p className="text-white text-3xl font-bold m-0 p-1 bg-darkPurple">{currentTrack.title}</p>
           <p>{currentTrack.author}</p>
         </div>
       </div>

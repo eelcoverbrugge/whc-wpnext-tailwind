@@ -24,38 +24,38 @@ export const MediaPlayer = () => {
       setCurrentTrack(tracks[trackIndex + 1]);
     }
   };
+  const [randomized, setRandomized] = React.useState(false);
 
   React.useEffect(() => {
     handleNext();
-  }, [])
+  }, []);
 
   return (
-    <div className="audio-player">
-      <div className="inner">
+    <div className="bg-azureishWhite">
+      <div className="max-w-[1200px] mx-auto my-0 p-5">
         <DisplayTrack
-          {...{
-            currentTrack,
-            audioRef,
-            setDuration,
-            progressBarRef,
-            handleNext,
-          }}
+          currentTrack={currentTrack}
+          audioRef={audioRef}
+          setDuration={setDuration}
+          progressBarRef={progressBarRef}
+          handleNext={handleNext}
         />
         <Controls
-          {...{
-            audioRef,
-            progressBarRef,
-            duration,
-            setTimeProgress,
-            tracks,
-            trackIndex,
-            setTrackIndex,
-            setCurrentTrack,
-            handleNext,
-          }}
+          audioRef={audioRef}
+          progressBarRef={progressBarRef}
+          duration={duration}
+          setTimeProgress={setTimeProgress}
+          tracks={tracks}
+          trackIndex={trackIndex}
+          setTrackIndex={setTrackIndex}
+          setCurrentTrack={setCurrentTrack}
+          handleNext={handleNext}
         />
         <ProgressBar
-          {...{ progressBarRef, audioRef, timeProgress, duration }}
+          progressBarRef={progressBarRef}
+          audioRef={audioRef}
+          timeProgress={timeProgress}
+          duration={duration}
         />
       </div>
     </div>

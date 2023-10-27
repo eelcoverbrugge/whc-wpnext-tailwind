@@ -4,17 +4,17 @@ import slaveOfStone from "../../public/songs/Will-Hawkins-Collectief-Slave-Of-St
 
 export const tracks = [
   {
-    title: 'Will Hawkins Collectief - How Could You',
+    title: 'How Could You',
     src: howCouldYou,
     author: 'Will Hawkins Collectief',
   },
   {
-    title: 'Will Hawkins Collectief - Das Spiel',
+    title: 'Das Spiel',
     src: dasSpiel,
     author: 'Will Hawkins Collectief',
   },
   {
-    title: 'Will Hawkins Collectief - Slave Of Stone',
+    title: 'Slave Of Stone',
     src: slaveOfStone,
     author: 'Will Hawkins Collectief',
   },

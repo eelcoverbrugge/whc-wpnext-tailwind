@@ -9,11 +9,6 @@ const ProgressBar = ({
     audioRef.current.currentTime = progressBarRef.current.value;
   };
 
-  React.useEffect(() => {
-    console.log("timeProgress: ", timeProgress)
-    console.log("duration: ", duration)
-  }, [duration, timeProgress]);
-
   const formatTime = (time) => {
     if (time && !isNaN(time)) {
       const minutes = Math.floor(time / 60);
@@ -28,15 +23,15 @@ const ProgressBar = ({
   };
 
   return (
-    <div className="progress">
-      <span className="time current">{formatTime(timeProgress)}</span>
+    <div className="flex items-center gap-2 w-full mt-2 border border-1 border-gray-300">
+      <span className="text-slate-900">{formatTime(timeProgress)}</span>
       <input
         type="range"
         ref={progressBarRef}
         defaultValue="0"
         onChange={handleProgressChange}
       />
-      <span className="time">{formatTime(duration)}</span>
+      <span className="text-slate-900">{formatTime(duration)}</span>
     </div>
   );
 };

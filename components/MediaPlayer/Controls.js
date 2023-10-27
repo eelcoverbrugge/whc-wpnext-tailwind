@@ -91,8 +91,8 @@ const Controls = ({
   }, [volume, audioRef, muteVolume]);
 
   return (
-    <div className="controls-wrapper">
-      <div className="controls">
+    <div className="flex items-center mt-2 justify-between">
+      <div className="flex gap-2">
         <button onClick={handlePrevious}>
           <IoPlaySkipBackSharp />
         </button>
@@ -110,7 +110,7 @@ const Controls = ({
           <IoPlaySkipForwardSharp />
         </button>
       </div>
-      <div className="volume">
+      <div className="flex items-center">
         <button onClick={() => setMuteVolume((prev) => !prev)}>
           {muteVolume || volume < 5 ? (
             <IoMdVolumeOff />
