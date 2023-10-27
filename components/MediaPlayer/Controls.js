@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 
 import {
   IoPlayBackCircle,
@@ -16,28 +16,28 @@ import {
 } from 'react-icons/io';
 
 const Controls = ({
-  audioRef,
-  progressBarRef,
-  duration,
-  setTimeProgress,
-  tracks,
-  trackIndex,
-  setTrackIndex,
-  setCurrentTrack,
-  handleNext,
-  displayNone,
-}) => {
-  const [isPlaying, setIsPlaying] = React.useState(false);
-  const [volume, setVolume] = React.useState(60);
-  const [muteVolume, setMuteVolume] = React.useState(false);
+                    audioRef,
+                    progressBarRef,
+                    duration,
+                    setTimeProgress,
+                    tracks,
+                    trackIndex,
+                    setTrackIndex,
+                    setCurrentTrack,
+                    handleNext,
+                    displayNone,
+                  }) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [volume, setVolume] = useState(60);
+  const [muteVolume, setMuteVolume] = useState(false);
 
   const togglePlayPause = () => {
     setIsPlaying((prev) => !prev);
   };
 
-  const playAnimationRef = React.useRef();
+  const playAnimationRef = useRef();
 
-  const repeat = React.useCallback(() => {
+  const repeat = useCallback(() => {
     const currentTime = audioRef.current.currentTime;
     setTimeProgress(currentTime);
     progressBarRef.current.value = currentTime;
@@ -49,7 +49,7 @@ const Controls = ({
     playAnimationRef.current = requestAnimationFrame(repeat);
   }, [audioRef, duration, progressBarRef, setTimeProgress]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isPlaying) {
       audioRef.current.play();
     } else {
@@ -77,14 +77,7 @@ const Controls = ({
     }
   };
 
-  React.useEffect(() => {
-    if (audioRef) {
-      audioRef.current.volume = volume / 100;
-      audioRef.current.muted = muteVolume;
-    }
-  }, [volume, audioRef, muteVolume]);
-
-  React.useEffect(() => {
+  useEffect(() => {
     if (audioRef) {
       audioRef.current.volume = volume / 100;
       audioRef.current.muted = muteVolume;
@@ -112,7 +105,7 @@ const Controls = ({
         </button>
       </div>
       <div className="flex items-center">
-        <button onClick={() => setMuteVolume((prev) => !prev)}>
+        <button onClick={() => setMuteVolume(!muteVolume)}>
           {muteVolume || volume < 5 ? (
             <IoMdVolumeOff />
           ) : volume < 40 ? (

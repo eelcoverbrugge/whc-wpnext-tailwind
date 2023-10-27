@@ -1,21 +1,20 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import DisplayTrack from "./DisplayTrack";
 import Controls from "./Controls";
 import ProgressBar from "./ProgressBar";
 import { tracks } from "./tracks";
-import { IoChevronDownOutline, IoChevronUpOutline, IoCloseCircleOutline } from "react-icons/io5";
+import { IoChevronDownOutline, IoChevronUpOutline } from "react-icons/io5";
 
 export const MediaPlayer = ({ className }) => {
-  const [trackIndex, setTrackIndex] = React.useState(0);
-  const [currentTrack, setCurrentTrack] = React.useState(
-    tracks[trackIndex]
-  );
-  const [timeProgress, setTimeProgress] = React.useState(0);
-  const [duration, setDuration] = React.useState(0);
-  const [minimalize, setMinimalize] = React.useState(false);
+  const [trackIndex, setTrackIndex] = useState(0);
+  const [currentTrack, setCurrentTrack] = useState(tracks[trackIndex]);
+  const [timeProgress, setTimeProgress] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [minimalize, setMinimalize] = useState(false);
+  const [randomized, setRandomized] = useState(false);
 
-  const audioRef = React.useRef();
-  const progressBarRef = React.useRef();
+  const audioRef = useRef();
+  const progressBarRef = useRef();
 
   const handleNext = () => {
     if (trackIndex >= tracks.length - 1) {
@@ -27,19 +26,21 @@ export const MediaPlayer = ({ className }) => {
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     handleNext();
   }, []);
 
   const toggleMinimalize = () => {
     setMinimalize(!minimalize);
-  }
+  };
 
   return (
     <div className={`${className} bg-azureishWhite`}>
       <div className="w-[600px] p-5">
         <div className="w-full flex justify-end gap-2">
-          <button onClick={toggleMinimalize}>{minimalize ? <IoChevronUpOutline /> : <IoChevronDownOutline />}</button>
+          <button onClick={toggleMinimalize}>
+            {minimalize ? <IoChevronUpOutline /> : <IoChevronDownOutline />}
+          </button>
         </div>
         <DisplayTrack
           currentTrack={currentTrack}
