@@ -25,6 +25,10 @@ export const MediaPlayer = () => {
     }
   };
 
+  React.useEffect(() => {
+    handleNext();
+  }, [])
+
   return (
     <div className="audio-player">
       <div className="inner">
