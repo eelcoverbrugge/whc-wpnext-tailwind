@@ -7,6 +7,7 @@ const DisplayTrack = ({
   setDuration,
   progressBarRef,
   handleNext,
+                        minimalize,
 }) => {
   const onLoadedMetadata = () => {
     const seconds = audioRef.current.duration;
@@ -15,7 +16,7 @@ const DisplayTrack = ({
   };
 
   return (
-    <div>
+    <div className={minimalize ? "hidden" : "block"}>
       <audio
         src={currentTrack.src}
         ref={audioRef}
@@ -23,7 +24,7 @@ const DisplayTrack = ({
         onEnded={handleNext}
       />
       <div className="flex gap-4">
-        <div className="w-[300px] h-[300px] bg-darkPurple">
+        <div className="w-[150px] h-[150px] bg-darkPurple">
           {currentTrack.thumbnail ? (
             <Image
               src={currentTrack.thumbnail}

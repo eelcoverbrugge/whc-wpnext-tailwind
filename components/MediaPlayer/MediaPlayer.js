@@ -3,14 +3,16 @@ import DisplayTrack from "./DisplayTrack";
 import Controls from "./Controls";
 import ProgressBar from "./ProgressBar";
 import { tracks } from "./tracks";
+import { IoChevronDownOutline, IoChevronUpOutline, IoCloseCircleOutline } from "react-icons/io5";
 
-export const MediaPlayer = () => {
+export const MediaPlayer = ({ className }) => {
   const [trackIndex, setTrackIndex] = React.useState(0);
   const [currentTrack, setCurrentTrack] = React.useState(
     tracks[trackIndex]
   );
   const [timeProgress, setTimeProgress] = React.useState(0);
   const [duration, setDuration] = React.useState(0);
+  const [minimalize, setMinimalize] = React.useState(false);
 
   const audioRef = React.useRef();
   const progressBarRef = React.useRef();
@@ -24,21 +26,28 @@ export const MediaPlayer = () => {
       setCurrentTrack(tracks[trackIndex + 1]);
     }
   };
-  const [randomized, setRandomized] = React.useState(false);
 
   React.useEffect(() => {
     handleNext();
   }, []);
 
+  const toggleMinimalize = () => {
+    setMinimalize(!minimalize);
+  }
+
   return (
-    <div className="bg-azureishWhite">
-      <div className="max-w-[1200px] mx-auto my-0 p-5">
+    <div className={`${className} bg-azureishWhite`}>
+      <div className="w-[600px] p-5">
+        <div className="w-full flex justify-end gap-2">
+          <button onClick={toggleMinimalize}>{minimalize ? <IoChevronUpOutline /> : <IoChevronDownOutline />}</button>
+        </div>
         <DisplayTrack
           currentTrack={currentTrack}
           audioRef={audioRef}
           setDuration={setDuration}
           progressBarRef={progressBarRef}
           handleNext={handleNext}
+          minimalize={minimalize}
         />
         <Controls
           audioRef={audioRef}
@@ -50,6 +59,7 @@ export const MediaPlayer = () => {
           setTrackIndex={setTrackIndex}
           setCurrentTrack={setCurrentTrack}
           handleNext={handleNext}
+          minimalize={minimalize}
         />
         <ProgressBar
           progressBarRef={progressBarRef}

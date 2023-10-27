@@ -1,12 +1,12 @@
 import React from 'react';
 
 import {
-  IoPlayBackSharp,
-  IoPlayForwardSharp,
-  IoPlaySkipBackSharp,
-  IoPlaySkipForwardSharp,
-  IoPlaySharp,
-  IoPauseSharp,
+  IoPlayBackCircle,
+  IoPlayForwardCircle,
+  IoPlaySkipBackCircle,
+  IoPlaySkipForwardCircle,
+  IoPlayCircle,
+  IoPauseCircle,
 } from 'react-icons/io5';
 
 import {
@@ -25,6 +25,7 @@ const Controls = ({
   setTrackIndex,
   setCurrentTrack,
   handleNext,
+  displayNone,
 }) => {
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [volume, setVolume] = React.useState(60);
@@ -91,23 +92,23 @@ const Controls = ({
   }, [volume, audioRef, muteVolume]);
 
   return (
-    <div className="flex items-center mt-2 justify-between">
+    <div className="flex items-center my-2 justify-between">
       <div className="flex gap-2">
         <button onClick={handlePrevious}>
-          <IoPlaySkipBackSharp />
+          <IoPlaySkipBackCircle />
         </button>
         <button onClick={skipBackward}>
-          <IoPlayBackSharp />
+          <IoPlayBackCircle />
         </button>
 
         <button onClick={togglePlayPause}>
-          {isPlaying ? <IoPauseSharp /> : <IoPlaySharp />}
+          {isPlaying ? <IoPauseCircle /> : <IoPlayCircle />}
         </button>
         <button onClick={skipForward}>
-          <IoPlayForwardSharp />
+          <IoPlayForwardCircle />
         </button>
         <button onClick={handleNext}>
-          <IoPlaySkipForwardSharp />
+          <IoPlaySkipForwardCircle />
         </button>
       </div>
       <div className="flex items-center">
