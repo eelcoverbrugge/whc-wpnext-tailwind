@@ -82,7 +82,7 @@ export const MainMenu = ({ items, callToActionLabel, callToActionDestination }) 
                     //   enterTo="opacity-100 translate-y-0"
                     // >
 
-                      <li className={`relative w-fit block after:block after:content-[''] after:absolute after:bottom-[-7px] after:h-[3px] after:bg-soap after:w-full ${router.asPath.replace(/\//g, '') === item.destination.replace(/\//g, '') ? "" : "after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center"}`}>
+                      <li key={index} className={`relative w-fit block after:block after:content-[''] after:absolute after:bottom-[-7px] after:h-[3px] after:bg-soap after:w-full ${router.asPath.replace(/\//g, '') === item.destination.replace(/\//g, '') ? "" : "after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center"}`}>
 
                         <Link href={item.destination}>
 
