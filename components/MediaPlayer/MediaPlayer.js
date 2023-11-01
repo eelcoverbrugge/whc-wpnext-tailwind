@@ -46,10 +46,10 @@ export const MediaPlayer = () => {
   return (
     <div
       className={`fixed bottom-0 right-0 z-10 bg-azureishWhite transition-transform transform ${
-        isVisible ? 'translate-x-0' : 'translate-x-[600px]'
-      } w-[600px]`}
+        isVisible ? 'translate-x-0' : 'translate-x-full'
+      } w-full md:w-[600px]`}
     >
-      <div className="w-full md:w-[600px] p-3">
+      <div className="p-3">
         <DisplayTrack
           currentTrack={currentTrack}
           audioRef={audioRef}

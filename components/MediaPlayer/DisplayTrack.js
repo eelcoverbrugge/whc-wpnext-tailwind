@@ -24,7 +24,7 @@ const DisplayTrack = ({
         onEnded={handleNext}
       />
       <div className="flex gap-4">
-        <div className="w-[75px] h-[75px] md:w-[150px] h-[150px] bg-darkPurple">
+        <div className="w-[100px] h-[100px] md:w-[150px] md:h-[150px] bg-darkPurple">
           {currentTrack.thumbnail ? (
             <Image
               src={currentTrack.thumbnail}
