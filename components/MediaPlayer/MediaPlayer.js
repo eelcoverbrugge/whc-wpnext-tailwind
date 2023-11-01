@@ -11,6 +11,7 @@ export const MediaPlayer = () => {
   const [timeProgress, setTimeProgress] = useState(0);
   const [duration, setDuration] = useState(0);
   const [minimalize, setMinimalize] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   const audioRef = useRef();
   const progressBarRef = useRef();
@@ -27,6 +28,15 @@ export const MediaPlayer = () => {
 
   useEffect(() => {
     handleNext();
+
+    const showDelay = 1000; // Adjust this as needed
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, showDelay);
+
+    return () => {
+      clearTimeout(timer);
+    };
   }, []);
 
   const toggleMinimalize = () => {
@@ -34,7 +44,11 @@ export const MediaPlayer = () => {
   };
 
   return (
-    <div className={"fixed bottom-0 right-0 z-10 bg-azureishWhite"}>
+    <div
+      className={`fixed bottom-0 right-0 z-10 bg-azureishWhite transition-transform transform ${
+        isVisible ? 'translate-x-0' : 'translate-x-[600px]'
+      } w-[600px]`}
+    >
       <div className="w-full md:w-[600px] p-3">
         <DisplayTrack
           currentTrack={currentTrack}
