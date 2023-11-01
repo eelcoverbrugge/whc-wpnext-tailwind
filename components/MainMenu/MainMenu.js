@@ -71,16 +71,16 @@ export const MainMenu = ({ items, callToActionLabel, callToActionDestination }) 
               }`}
             >
 
-              <Transition appear={true} show={true}>
+              {/*<Transition appear={true} show={true}>*/}
               <ul className="items-center justify-center space-y-8 md:flex md:space-x-1 lg:space-x-4 md:space-y-0">
                 {(items || []).map((item, index) => (
 
-                    <Transition.Child
-                      key={index}
-                      enter="transition ease-in-out delay-100 duration-100 transform"
-                      enterFrom="opacity-0 translate-y-full"
-                      enterTo="opacity-100 translate-y-0"
-                    >
+                    // <Transition.Child
+                    //   key={index}
+                    //   enter="transition ease-in-out delay-100 duration-100 transform"
+                    //   enterFrom="opacity-0 translate-y-full"
+                    //   enterTo="opacity-100 translate-y-0"
+                    // >
 
                       <li className={`relative w-fit block after:block after:content-[''] after:absolute after:bottom-[-7px] after:h-[3px] after:bg-soap after:w-full ${router.asPath.replace(/\//g, '') === item.destination.replace(/\//g, '') ? "" : "after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center"}`}>
 
@@ -95,7 +95,7 @@ export const MainMenu = ({ items, callToActionLabel, callToActionDestination }) 
                         </Link>
                       </li>
 
-                    </Transition.Child>
+                    // </Transition.Child>
 
                 ))}
                 <li>
@@ -107,7 +107,7 @@ export const MainMenu = ({ items, callToActionLabel, callToActionDestination }) 
                 </li>
               </ul>
 
-              </Transition>
+              {/*</Transition>*/}
             </div>
           </div>
         </div>
