@@ -72,7 +72,7 @@ const Controls = ({
 
   return (
     <div className="flex w-[100px] md:w-[200px] items-center my-2 justify-center">
-      <div className="flex gap-1 md:gap-2">
+      <div className="flex gap-0 md:gap-2">
         <button onClick={handlePrevious}>
           <IoPlaySkipBackCircle />
         </button>
