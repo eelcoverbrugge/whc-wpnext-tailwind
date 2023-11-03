@@ -1,6 +1,6 @@
-import dasSpiel from "../../public/songs/Will-Hawkins-Collectief-Das-Spiel.wav";
-import howCouldYou from "../../public/songs/Will-Hawkins-Collectief-How-Could-You.wav";
-import slaveOfStone from "../../public/songs/Will-Hawkins-Collectief-Slave-Of-Stone.wav";
+import dasSpiel from "../../public/songs/Will-Hawkins-Collectief-Das-Spiel.mp3";
+import howCouldYou from "../../public/songs/Will-Hawkins-Collectief-How-Could-You.mp3";
+import slaveOfStone from "../../public/songs/Will-Hawkins-Collectief-Slave-Of-Stone.mp3";
 
 export const tracks = [
   {
