@@ -5,6 +5,7 @@ import Head from "next/head";
 import { FooterMenu } from "../FooterMenu";
 import { Favicon } from '../Favicon';
 import { MediaPlayer } from "../MediaPlayer";
+import Diagram from "../Diagram/Diagram";
 
 export const Page = (props) => {
   return (
@@ -26,6 +27,7 @@ export const Page = (props) => {
                   callToActionDestination={props.callToActionDestination}
         />
         <BlockRenderer blocks={props.blocks} />
+        <Diagram />
         <MediaPlayer />
         <FooterMenu items={props.footerMenuItems}
                     company={props.footerCompany}
