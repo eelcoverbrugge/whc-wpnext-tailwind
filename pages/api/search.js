@@ -40,7 +40,7 @@ const handler = async (req, res) => {
     const { data } = await client.query({
       query: gql`
         query AllAgendaItemsQuery {
-          agendaItems(where: 
+          agendaItems(first: 99, where: 
             {
               offsetPagination: 
               {  
@@ -74,6 +74,8 @@ const handler = async (req, res) => {
         }
       `
     });
+
+    console.log(data.agendaItems.nodes)
 
     return res.status(200).json({
       total: data.agendaItems.pageInfo.offsetPagination.total,

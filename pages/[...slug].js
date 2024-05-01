@@ -16,7 +16,7 @@ export const getStaticPaths = async () => {
             uri
           }
         }
-        agendaItems {
+        agendaItems(first: 99) {
           nodes {
             title
             uri
