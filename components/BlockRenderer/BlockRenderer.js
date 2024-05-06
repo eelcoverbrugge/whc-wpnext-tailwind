@@ -16,6 +16,7 @@ import { TickItem } from "../TickItem";
 import { Spacer } from "../Spacer";
 import { Separator } from "../Separator";
 import { Image } from "../Image";
+import { EmbededVideo } from "../EmbededVideo";
 
 export const BlockRenderer = ({ blocks }) => {
   return blocks.map(block => {
@@ -91,6 +92,10 @@ export const BlockRenderer = ({ blocks }) => {
       case "core/cover": {
         return <Cover key={block.id} background={block.attributes.url}><BlockRenderer
           blocks={block.innerBlocks} /></Cover>;
+      }
+      case "core/video": {
+        console.log(block.attributes.src.split('=')[1])
+        return <EmbededVideo key={block.id} video_id={block?.attributes?.src?.split('=')[1]}/>;
       }
       case "core/columns": {
         return <Columns key={block.id}
