@@ -7,6 +7,7 @@ import { Favicon } from '../Favicon';
 import { MediaPlayer } from "../MediaPlayer";
 
 export const Page = (props) => {
+  
   return (
     <PageWrapper
       value={{
