@@ -14,8 +14,8 @@ export const AgendaItemCard = ({
         <div className={`w-full md:w-1/4`}>
           {image && <Image
             src={image}
-            height="200px"
-            width="300px"
+            height="200"
+            width="300"
             layout="responsive"
             alt=""
           />}

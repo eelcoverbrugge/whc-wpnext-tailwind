@@ -9,8 +9,8 @@ export const Cover = ({ background }) => {
         <Image
           alt="PostTitle"
           src={background || featuredImage}
-          layout="fill"
-          objectFit="cover"
+          fill
+          style={{ objectFit: "cover" }}
           className="mix-blend-soft-light"
           priority={true}
         />

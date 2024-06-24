@@ -124,14 +124,13 @@ export const BlockRenderer = ({ blocks }) => {
         return <BlockRenderer key={block.id} blocks={block.innerBlocks} />;
       }
       case "core/image": {
-        const layout = block.attributes.sizeSlug === "full" ? "responsive" : "";
         return (
           <Image key={block.id}
                  src={block.attributes.url}
-                 height={block.attributes.height}
-                 width={block.attributes.width}
+                 height={block.attributes.height?.toString().replace(/[^0-9]/g, '')}
+                 width={block?.attributes?.width?.toString().replace(/[^0-9]/g, '')}
                  alt={block.attributes.alt || ""}
-                 layout={layout}
+                 fill={true}
                  priority={true}
                  link={block.attributes.href}
           />

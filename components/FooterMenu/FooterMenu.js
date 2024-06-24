@@ -16,7 +16,7 @@ export const FooterMenu = ({ items, company, logos }) => {
                     alt={item.logo.altText}
                     width={item.logo.mediaDetails.width}
                     height={item.logo.mediaDetails.height}
-                    objectFit="cover"
+                    style={{ objectFit: "cover" }}
                   />
                 }
               </div>
@@ -38,17 +38,13 @@ export const FooterMenu = ({ items, company, logos }) => {
                     {company.socialMedia && company.socialMedia.map((social, index) => (
                       <div key={index}>
                         {!!social.url && social.name === "Facebook" && (
-                          <Link href={social.url} passHref>
-                              <a target="_blank" rel="noopener noreferrer">
-                                <FaFacebook size={25} className="cursor-pointer hover:text-soap" />
-                              </a>
+                          <Link href={social.url} target="_blank">
+                              <FaFacebook size={25} className="cursor-pointer hover:text-soap" />
                           </Link>
                         )}
                         {!!social.url && social.name === "Youtube" && (
-                          <Link href={social.url} passHref>
-                              <a target="_blank" rel="noopener noreferrer">
-                                <FaYoutube size={25} className="cursor-pointer hover:text-soap" />
-                              </a>
+                          <Link href={social.url} target="_blank">
+                              <FaYoutube size={25} className="cursor-pointer hover:text-soap" />
                           </Link>
                         )}
                       </div>
@@ -66,8 +62,8 @@ export const FooterMenu = ({ items, company, logos }) => {
                 {!!item.subMenuItems?.length && (
                   <div className="flex flex-col">
                     {item.subMenuItems.map(subMenuItem => (
-                      <Link key={subMenuItem.id} href={subMenuItem.destination}>
-                        <a className="no-underline hover:underline cursor-pointer">{subMenuItem.label}</a>
+                      <Link key={subMenuItem.id} href={subMenuItem.destination} className="no-underline hover:underline cursor-pointer">
+                        {subMenuItem.label}
                       </Link>
                     ))}
                   </div>
