@@ -111,8 +111,9 @@ export const getPageStaticProps = async (context) => {
     }
   });
 
+  console.log("data.nodeByUri.blocksJSON: ", data.nodeByUri.blocksJSON)
   const blocks = cleanAndTransformBlocks(data.nodeByUri.blocksJSON);
-
+console.log("blocks: ", blocks)
   return {
     props: {
       seo: data.nodeByUri.seo || null,
