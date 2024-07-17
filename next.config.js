@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [process.env.WP_IMAGES_URL],
+    domains: ["academic-horse.flywheelstaging.com"],
   },
   eslint: {
     // Warning: This allows production builds to successfully complete even if
