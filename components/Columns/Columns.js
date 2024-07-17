@@ -1,3 +1,5 @@
+"use client";
+
 import { useParallax } from "react-scroll-parallax";
 import React, { useRef } from 'react';
 

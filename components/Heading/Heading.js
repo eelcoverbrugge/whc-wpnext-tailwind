@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Transition } from '@headlessui/react'
 import { getFontSizeForHeading, getTextAlign } from "../../utils/fonts";

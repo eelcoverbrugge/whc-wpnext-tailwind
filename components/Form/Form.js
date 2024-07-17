@@ -1,3 +1,5 @@
+"use client";
+
 import { useForm, ValidationError } from "@formspree/react";
 import Image from "next/image";
 import ArrowRight from "../../assets/images/witte-linkbalk-pijl-rechts.png";

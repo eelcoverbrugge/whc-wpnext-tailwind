@@ -1,3 +1,5 @@
+"use client";
+
 import { FaBars, FaRegWindowClose } from "react-icons/fa";
 import Link from "next/link";
 import WhcLogo from "../../assets/images/whc-logo.png";
@@ -45,14 +47,12 @@ export const MainMenu = ({ items, callToActionLabel, callToActionDestination }) 
           <div>
             <div className="flex items-center justify-between py-3 md:block">
               <Link href="/">
-                <a>
-                  <Image src={WhcLogo}
-                         height="45"
-                         width="201"
-                         alt="logo"
-                         priority
-                  />
-                </a>
+                <Image src={WhcLogo}
+                       height="45"
+                       width="201"
+                       alt="logo"
+                       priority
+                />
               </Link>
               <div className="md:hidden">
                 <button
@@ -84,14 +84,12 @@ export const MainMenu = ({ items, callToActionLabel, callToActionDestination }) 
 
                       <li className={`relative w-fit block after:block after:content-[''] after:absolute after:bottom-[-7px] after:h-[3px] after:bg-soap after:w-full ${router.asPath.replace(/\//g, '') === item.destination.replace(/\//g, '') ? "" : "after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center"}`}>
 
-                        <Link href={item.destination}>
-
-                          <a onClick={() => setNavbar(!navbar)}
-                             className={`text-white p-2 font-bold uppercase`}>
+                        <Link
+                          href={item.destination}
+                          onClick={() => setNavbar(!navbar)}
+                          className={`text-white p-2 font-bold uppercase`}
+                        >
                             {item.label}
-
-                          </a>
-
                         </Link>
                       </li>
 

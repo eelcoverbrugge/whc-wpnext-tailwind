@@ -1,3 +1,5 @@
+"use client";
+
 import { FaFileDownload } from "react-icons/fa";
 import { Cover } from "../Cover";
 import { Heading } from "../Heading";

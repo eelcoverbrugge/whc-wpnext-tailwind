@@ -1,3 +1,5 @@
+"use client";
+
 import { usePageContext } from "../../context/page";
 import { Heading } from "../Heading";
 

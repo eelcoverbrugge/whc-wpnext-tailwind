@@ -1,3 +1,5 @@
+"use client";
+
 import { usePageContext } from "../../context/page";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBath, faBed, faCar, faDog } from "@fortawesome/free-solid-svg-icons";
