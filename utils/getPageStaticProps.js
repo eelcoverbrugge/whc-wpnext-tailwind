@@ -16,7 +16,7 @@ export const getPageStaticProps = async (context) => {
             ... on Page {
               id
               title
-              blocksJSON
+              blocks(postTemplate: false)
               featuredImage {
                 node {
                   sourceUrl
@@ -30,7 +30,7 @@ export const getPageStaticProps = async (context) => {
             ... on AgendaItem {
               id
               title
-              blocksJSON
+              blocks(postTemplate: false)
             }
           }
           acfOptionsMainMenu {
@@ -111,9 +111,11 @@ export const getPageStaticProps = async (context) => {
     }
   });
 
-  console.log("data.nodeByUri.blocksJSON: ", data.nodeByUri.blocksJSON)
-  const blocks = cleanAndTransformBlocks(data.nodeByUri.blocksJSON);
-console.log("blocks: ", blocks)
+
+  // console.log("getPageStaticProps... data: ", data);
+  const blocks = cleanAndTransformBlocks(data?.nodeByUri?.blocks);
+  // console.log("getPageStaticProps... blocks: ", blocks);
+
   return {
     props: {
       seo: data.nodeByUri.seo || null,
