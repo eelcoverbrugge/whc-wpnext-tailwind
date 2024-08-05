@@ -4,7 +4,7 @@ import ArrowRight from "../../assets/images/witte-linkbalk-pijl-rechts.png";
 
 export const ButtonLink = ({ destination, label, cta, ...otherProps }) => {
   return (
-    <Link href={destination}>
+    <Link href={destination || ""}>
       <button className="btn" {...otherProps}>
         <div className="flex gap-4 justify-between items-center">
           {label}
