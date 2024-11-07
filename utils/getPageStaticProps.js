@@ -111,7 +111,6 @@ export const getPageStaticProps = async (context) => {
     }
   });
 
-
   // console.log("getPageStaticProps... data: ", data);
   const blocks = cleanAndTransformBlocks(data?.nodeByUri?.blocks);
   // console.log("getPageStaticProps... blocks: ", blocks);

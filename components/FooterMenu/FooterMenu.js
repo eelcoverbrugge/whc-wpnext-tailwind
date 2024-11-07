@@ -62,7 +62,7 @@ export const FooterMenu = ({ items, company, logos }) => {
                 {!!item.subMenuItems?.length && (
                   <div className="flex flex-col">
                     {item.subMenuItems.map(subMenuItem => (
-                      <Link key={subMenuItem.id} href={subMenuItem.destination} className="no-underline hover:underline cursor-pointer">
+                      <Link key={subMenuItem.id} href={subMenuItem?.destination} className="no-underline hover:underline cursor-pointer">
                         {subMenuItem.label}
                       </Link>
                     ))}

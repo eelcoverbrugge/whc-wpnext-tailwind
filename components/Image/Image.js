@@ -5,7 +5,7 @@ export const Image = ({ src, height, width, alt, layout, priority, link }) => {
 
   if (link !== "") {
     return (
-      <Link href={link} target="_blank">
+      <Link href={link || "/"} target="_blank">
         <NextImage
           src={src}
           height={height}
