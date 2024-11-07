@@ -38,12 +38,12 @@ export const FooterMenu = ({ items, company, logos }) => {
                     {company.socialMedia && company.socialMedia.map((social, index) => (
                       <div key={index}>
                         {!!social.url && social.name === "Facebook" && (
-                          <Link href={social?.url} target="_blank">
+                          <Link href={social.url || ""} target="_blank">
                               <FaFacebook size={25} className="cursor-pointer hover:text-soap" />
                           </Link>
                         )}
                         {!!social.url && social.name === "Youtube" && (
-                          <Link href={social?.url} target="_blank">
+                          <Link href={social.url || ""} target="_blank">
                               <FaYoutube size={25} className="cursor-pointer hover:text-soap" />
                           </Link>
                         )}
@@ -56,7 +56,7 @@ export const FooterMenu = ({ items, company, logos }) => {
             {(items || []).map(item => (
               <div key={item.id} className="flex flex-col">
                 {item.destination ?
-                  <Link href={item?.destination}><span className="no-underline hover:underline cursor-pointer">{item.label}</span></Link> :
+                  <Link href={item.destination || ""}><span className="no-underline hover:underline cursor-pointer">{item.label}</span></Link> :
                   <h6 className="text-1xl font-bold">{item.label}</h6>
                 }
                 {!!item.subMenuItems?.length && (

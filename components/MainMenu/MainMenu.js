@@ -81,7 +81,7 @@ export const MainMenu = ({ items, callToActionLabel, callToActionDestination }) 
 
                       <li key={index} className={`relative w-fit block after:block after:content-[''] after:absolute after:bottom-[-7px] after:h-[3px] after:bg-soap after:w-full ${router.asPath.replace(/\//g, '') === item.destination.replace(/\//g, '') ? "" : "after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center"}`}>
 
-                        <Link href={item?.destination} onClick={() => setNavbar(!navbar)} className={`text-white p-2 font-bold uppercase`}>
+                        <Link href={item.destination || ""} onClick={() => setNavbar(!navbar)} className={`text-white p-2 font-bold uppercase`}>
                           {item.label}
                         </Link>
                       </li>
