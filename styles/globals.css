@@ -27,6 +27,11 @@
     box-sizing: border-box;
 }
 
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
 .media-player {
     background: #c1b6bc;
 }
