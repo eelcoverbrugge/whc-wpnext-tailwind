@@ -16,6 +16,7 @@ import { TickItem } from "../TickItem";
 import { Spacer } from "../Spacer";
 import { Separator } from "../Separator";
 import { Image } from "../Image";
+import { Video } from "components/Video";
 
 export const BlockRenderer = ({ blocks }) => {
   if (blocks && blocks.length > 0) {
@@ -161,6 +162,15 @@ export const BlockRenderer = ({ blocks }) => {
                 <button>{block?.attributes?.fileName}</button>
               </a>
             </div>
+          );
+        }
+        // Video
+        case "core/video": {
+          console.log("VIDEO: ", block);
+          return (
+            <Video key={block?.id}
+              originalContent={block?.originalContent}
+            />
           );
         }
         default: {

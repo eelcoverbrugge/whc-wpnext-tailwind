@@ -16,7 +16,7 @@ export const getPageStaticProps = async (context) => {
             ... on Page {
               id
               title
-              blocks(postTemplate: false)
+              blocks(postTemplate: false, originalContent: true)
               featuredImage {
                 node {
                   sourceUrl
@@ -30,7 +30,7 @@ export const getPageStaticProps = async (context) => {
             ... on AgendaItem {
               id
               title
-              blocks(postTemplate: false)
+              blocks(postTemplate: false, originalContent: true)
             }
           }
           acfOptionsMainMenu {
