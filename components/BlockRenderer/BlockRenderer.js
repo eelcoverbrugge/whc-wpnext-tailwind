@@ -166,7 +166,7 @@ export const BlockRenderer = ({ blocks }) => {
         }
         // Video
         case "core/video": {
-          console.log("VIDEO: ", block);
+          // console.log("VIDEO: ", block);
           return (
             <Video key={block?.id}
               originalContent={block?.originalContent}

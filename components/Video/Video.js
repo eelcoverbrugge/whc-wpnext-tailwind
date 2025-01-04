@@ -1,6 +1,6 @@
 export const Video = ({ originalContent }) => {
   return (
-    <div className={"video"}
+    <div className={"video py-4"}
        dangerouslySetInnerHTML={{ __html: originalContent }} />
   );
 };
