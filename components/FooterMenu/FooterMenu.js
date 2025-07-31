@@ -8,10 +8,10 @@ export const FooterMenu = ({ items, company, logos }) => {
       <div className="py-4 bg-azureishWhite">
         <div className="max-w-7xl mx-auto">
           <div
-            className={`flex flex-wrap justify-between mx-2 gap-4 lg:mx-auto items-center`}
+            className={`flex flex-wrap justify-between mx-2 lg:mx-auto items-center`}
           >
             {(logos || []).map((item, index) => (
-              <div key={index} class="bg-white rounded-lg p-2">
+              <div key={index}>
                 {item.logo?.link && (
                   <Image
                     src={item.logo.link}
