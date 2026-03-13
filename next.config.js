@@ -4,6 +4,18 @@ const nextConfig = {
   images: {
     domains: [process.env.WP_IMAGES_URL],
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'academic-horse.flywheelstaging.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'academic-horse.flywheelstaging.com',
+      },
+    ],
+  },
   eslint: {
     // Warning: This allows production builds to successfully complete even if
     // your project has ESLint errors.
