@@ -8,6 +8,14 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'http',
+        hostname: 'academic-horse.flywheelsites.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'academic-horse.flywheelsites.com',
+      },
+      {
+        protocol: 'http',
         hostname: 'academic-horse.flywheelstaging.com',
       },
       {
