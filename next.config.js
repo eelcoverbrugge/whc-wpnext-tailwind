@@ -2,26 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [process.env.WP_IMAGES_URL],
-  },
-  images: {
     remotePatterns: [
-      {
-        protocol: 'http',
-        hostname: 'academic-horse.flywheelsites.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'academic-horse.flywheelsites.com',
-      },
-      {
-        protocol: 'http',
-        hostname: 'academic-horse.flywheelstaging.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'academic-horse.flywheelstaging.com',
-      },
+      { protocol: 'http', hostname: process.env.WP_IMAGES_URL },
+      { protocol: 'https', hostname: process.env.WP_IMAGES_URL },
     ],
   },
   eslint: {
