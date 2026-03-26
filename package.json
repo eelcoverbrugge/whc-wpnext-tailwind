@@ -16,25 +16,36 @@
         "@fortawesome/free-solid-svg-icons": "^6.2.0",
         "@fortawesome/react-fontawesome": "^0.2.0",
         "@headlessui/react": "^1.7.14",
+        "@payloadcms/db-postgres": "^3.79.1",
+        "@payloadcms/next": "^3.79.1",
+        "@payloadcms/richtext-lexical": "^3.79.1",
         "graphql": "^16.8.1",
         "html-react-parser": "^3.0.4",
-        "next": "^15.0.0",
+        "next": "15.5.14",
         "nextjs-google-analytics": "^2.3.3",
         "numeral": "^2.0.6",
+        "payload": "^3.79.1",
         "query-string": "^7.1.1",
-        "react": "18.2.0",
+        "react": "^19.0.0",
         "react-audio-player": "^0.17.0",
-        "react-dom": "18.2.0",
+        "react-dom": "^19.0.0",
         "react-icons": "^4.11.0",
         "react-scroll-parallax": "^3.4.2",
         "uuid": "^8.3.2"
     },
     "devDependencies": {
+        "@types/node": "^25.5.0",
+        "@types/react": "^19.2.14",
+        "@types/react-dom": "^19.2.3",
         "autoprefixer": "^10.4.7",
         "eslint": "8.18.0",
-        "eslint-config-next": "^15.0.0",
+        "eslint-config-next": "15.5.14",
         "file-loader": "^6.2.0",
         "postcss": "^8.4.31",
-        "tailwindcss": "^3.1.6"
+        "tailwindcss": "^3.1.6",
+        "typescript": "^5.9.3"
+    },
+    "overrides": {
+        "minimatch": "^9.0.5"
     }
 }
