@@ -1,8 +1,11 @@
 import Link from "next/link";
 import { FaFacebook, FaYoutube } from "react-icons/fa";
 import Image from "next/image";
+import { useConsent } from "context/consent";
 
 export const FooterMenu = ({ items, company, logos }) => {
+  const { openSettings } = useConsent();
+
   return (
     <>
       <div className="py-4 bg-azureishWhite">
@@ -73,8 +76,14 @@ export const FooterMenu = ({ items, company, logos }) => {
           </div>
         </div>
       </div>
-      <div className="bg-darkPurple text-white font-bold text-xs text-center py-2">
+      {/* Ruimte vrijhouden voor de vaste MediaPlayer (mobiel volle breedte, desktop 600px rechts) */}
+      <div className="bg-darkPurple text-white font-bold text-xs text-center pt-2 pb-[220px] md:pb-2 md:pr-[600px]">
         <p>Copyright 2022 | Will Hawkins Collectief | Website powered by Eelco & Jeroen</p>
+        <p className="mt-1">
+          <Link href="/privacyverklaring" className="hover:underline">Privacy- en cookieverklaring</Link>
+          {" | "}
+          <button onClick={openSettings} className="font-bold hover:underline">Cookie-instellingen</button>
+        </p>
       </div>
     </>
   );

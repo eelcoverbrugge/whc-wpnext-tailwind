@@ -17,6 +17,7 @@ import { Spacer } from "../Spacer";
 import { Separator } from "../Separator";
 import { Image } from "../Image";
 import { Video } from "components/Video";
+import { YouTubeEmbed } from "components/YouTubeEmbed";
 
 export const BlockRenderer = ({ blocks }) => {
   if (blocks && blocks.length > 0) {
@@ -170,6 +171,19 @@ export const BlockRenderer = ({ blocks }) => {
           return (
             <Video key={block?.id}
               originalContent={block?.originalContent}
+            />
+          );
+        }
+        // Embed (alleen YouTube, pas na toestemming)
+        case "core/embed": {
+          if (block?.attributes?.providerNameSlug !== "youtube") {
+            console.log("UNKNOWN EMBED: ", block);
+            return null;
+          }
+          return (
+            <YouTubeEmbed key={block?.id}
+              url={block?.attributes?.url}
+              caption={block?.attributes?.caption}
             />
           );
         }

@@ -28,6 +28,7 @@ export const Page = (props) => {
                   callToActionDestination={props.callToActionDestination}
         />
         <BlockRenderer blocks={props.blocks} />
+        {props.children}
         <MediaPlayer />
         <FooterMenu items={props.footerMenuItems}
                     company={props.footerCompany}
